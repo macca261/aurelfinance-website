@@ -1,0 +1,1197 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <title>Aurel — Deine Finanzen verstehen</title>
+
+  <meta
+    name="description"
+    content="Aurel bringt Konten, Ausgaben und finanzielle Veränderungen in einen ruhigen, privaten Überblick. Für iPhone in Entwicklung."
+  >
+
+  <style>
+    :root {
+      --background: #fbfbfa;
+      --surface: #ffffff;
+      --surface-soft: #f5f7f8;
+
+      --text: #111417;
+      --text-secondary: #60676d;
+      --text-tertiary: #8a9197;
+
+      --line: #e5e8ea;
+      --line-strong: #d9dddf;
+
+      --blue: #75a9d6;
+      --blue-dark: #356f9f;
+      --blue-soft: #eaf3fa;
+
+      --green: #2e8668;
+      --green-soft: #e7f3ee;
+
+      --radius-large: 28px;
+      --radius-medium: 18px;
+      --radius-small: 12px;
+
+      --max-width: 1180px;
+    }
+
+    * {
+      box-sizing: border-box;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      margin: 0;
+      background: var(--background);
+      color: var(--text);
+
+      font-family:
+        -apple-system,
+        BlinkMacSystemFont,
+        "SF Pro Display",
+        "SF Pro Text",
+        "Helvetica Neue",
+        Arial,
+        sans-serif;
+
+      -webkit-font-smoothing: antialiased;
+    }
+
+    a {
+      color: inherit;
+      text-decoration: none;
+    }
+
+    .container {
+      width: min(calc(100% - 48px), var(--max-width));
+      margin: 0 auto;
+    }
+
+    /* HEADER */
+
+    header {
+      height: 82px;
+      display: flex;
+      align-items: center;
+
+      border-bottom: 1px solid rgba(17, 20, 23, 0.06);
+      background: rgba(251, 251, 250, 0.92);
+
+      position: sticky;
+      top: 0;
+      z-index: 50;
+
+      backdrop-filter: blur(18px);
+      -webkit-backdrop-filter: blur(18px);
+    }
+
+    .nav {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+
+    .brand {
+      display: flex;
+      align-items: center;
+      gap: 11px;
+
+      font-size: 20px;
+      font-weight: 670;
+      letter-spacing: -0.4px;
+    }
+
+    .brand-mark {
+      width: 31px;
+      height: 31px;
+
+      display: grid;
+      place-items: center;
+
+      border-radius: 9px;
+      background: var(--text);
+      color: white;
+
+      font-size: 17px;
+      font-weight: 700;
+      letter-spacing: -0.8px;
+    }
+
+    .nav-right {
+      display: flex;
+      align-items: center;
+      gap: 28px;
+
+      color: var(--text-secondary);
+      font-size: 14px;
+      font-weight: 520;
+    }
+
+    .status-pill {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+
+      padding: 10px 14px;
+
+      background: var(--surface);
+      border: 1px solid var(--line);
+      border-radius: 999px;
+
+      color: var(--text);
+    }
+
+    .status-dot {
+      width: 7px;
+      height: 7px;
+      border-radius: 50%;
+      background: var(--blue);
+    }
+
+    /* HERO */
+
+    .hero {
+      padding: 104px 0 92px;
+    }
+
+    .hero-grid {
+      display: grid;
+      grid-template-columns: minmax(0, 1fr) 470px;
+      gap: 95px;
+      align-items: center;
+    }
+
+    .eyebrow {
+      margin: 0 0 23px;
+
+      color: var(--blue-dark);
+
+      font-size: 13px;
+      font-weight: 650;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+    }
+
+    h1 {
+      max-width: 680px;
+
+      margin: 0;
+
+      font-size: clamp(56px, 6.2vw, 82px);
+      line-height: 0.98;
+      letter-spacing: -0.058em;
+      font-weight: 680;
+    }
+
+    .hero-copy {
+      max-width: 570px;
+
+      margin: 30px 0 0;
+
+      color: var(--text-secondary);
+
+      font-size: 19px;
+      line-height: 1.55;
+      letter-spacing: -0.015em;
+    }
+
+    .hero-meta {
+      display: flex;
+      align-items: center;
+      gap: 18px;
+
+      margin-top: 35px;
+    }
+
+    .availability {
+      display: inline-flex;
+      align-items: center;
+      gap: 9px;
+
+      color: var(--text);
+      font-size: 14px;
+      font-weight: 570;
+    }
+
+    .availability-icon {
+      width: 34px;
+      height: 34px;
+
+      display: grid;
+      place-items: center;
+
+      border-radius: 10px;
+      border: 1px solid var(--line);
+      background: var(--surface);
+
+      font-size: 17px;
+    }
+
+    .hero-note {
+      color: var(--text-tertiary);
+      font-size: 13px;
+    }
+
+    /* PHONE */
+
+    .device-wrap {
+      position: relative;
+
+      display: flex;
+      justify-content: center;
+    }
+
+    .device-shadow {
+      position: absolute;
+      left: 50%;
+      bottom: -24px;
+
+      width: 78%;
+      height: 60px;
+
+      transform: translateX(-50%);
+
+      border-radius: 50%;
+      background: rgba(32, 44, 53, 0.10);
+      filter: blur(28px);
+    }
+
+    .phone {
+      position: relative;
+
+      width: 345px;
+      height: 696px;
+
+      padding: 10px;
+
+      border: 1px solid #cbd0d4;
+      border-radius: 52px;
+
+      background: #1c2024;
+
+      box-shadow:
+        0 35px 80px rgba(25, 34, 42, 0.14),
+        0 8px 22px rgba(25, 34, 42, 0.08);
+    }
+
+    .phone-screen {
+      position: relative;
+
+      height: 100%;
+      overflow: hidden;
+
+      border-radius: 43px;
+      background: #f8f9f9;
+    }
+
+    .dynamic-island {
+      position: absolute;
+      top: 12px;
+      left: 50%;
+      z-index: 10;
+
+      width: 92px;
+      height: 27px;
+
+      transform: translateX(-50%);
+
+      border-radius: 20px;
+      background: #090a0b;
+    }
+
+    .app {
+      height: 100%;
+      padding: 56px 20px 20px;
+    }
+
+    .app-topbar {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+
+      margin-bottom: 24px;
+    }
+
+    .app-title {
+      font-size: 22px;
+      font-weight: 690;
+      letter-spacing: -0.7px;
+    }
+
+    .avatar {
+      width: 32px;
+      height: 32px;
+
+      display: grid;
+      place-items: center;
+
+      border-radius: 50%;
+      background: var(--blue-soft);
+
+      color: var(--blue-dark);
+      font-size: 12px;
+      font-weight: 700;
+    }
+
+    .demo-label {
+      display: inline-flex;
+      align-items: center;
+
+      margin-bottom: 10px;
+      padding: 5px 8px;
+
+      border-radius: 7px;
+      background: #edf0f2;
+
+      color: #747b80;
+
+      font-size: 9px;
+      font-weight: 650;
+      letter-spacing: 0.06em;
+      text-transform: uppercase;
+    }
+
+    .balance-label {
+      color: var(--text-secondary);
+
+      font-size: 12px;
+      font-weight: 520;
+    }
+
+    .balance {
+      margin-top: 5px;
+
+      font-size: 35px;
+      line-height: 1;
+      font-weight: 680;
+      letter-spacing: -1.7px;
+    }
+
+    .balance-change {
+      margin-top: 8px;
+
+      color: var(--green);
+
+      font-size: 11px;
+      font-weight: 600;
+    }
+
+    .chart-card {
+      margin-top: 22px;
+      padding: 17px;
+
+      border: 1px solid var(--line);
+      border-radius: 19px;
+
+      background: var(--surface);
+    }
+
+    .chart-heading {
+      display: flex;
+      justify-content: space-between;
+      align-items: baseline;
+
+      margin-bottom: 13px;
+    }
+
+    .chart-heading strong {
+      font-size: 12px;
+      font-weight: 640;
+    }
+
+    .chart-heading span {
+      color: var(--text-tertiary);
+      font-size: 10px;
+    }
+
+    .chart {
+      width: 100%;
+      height: 85px;
+      display: block;
+    }
+
+    .stats-row {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 10px;
+
+      margin-top: 10px;
+    }
+
+    .mini-card {
+      padding: 14px;
+
+      border: 1px solid var(--line);
+      border-radius: 16px;
+
+      background: var(--surface);
+    }
+
+    .mini-label {
+      margin-bottom: 6px;
+
+      color: var(--text-tertiary);
+
+      font-size: 9px;
+      font-weight: 600;
+    }
+
+    .mini-value {
+      font-size: 17px;
+      font-weight: 670;
+      letter-spacing: -0.5px;
+    }
+
+    .insight {
+      margin-top: 10px;
+      padding: 15px;
+
+      border-radius: 17px;
+      background: var(--blue-soft);
+    }
+
+    .insight-head {
+      display: flex;
+      align-items: center;
+      gap: 7px;
+
+      margin-bottom: 7px;
+
+      color: var(--blue-dark);
+
+      font-size: 10px;
+      font-weight: 680;
+    }
+
+    .spark {
+      width: 8px;
+      height: 8px;
+
+      border-radius: 50%;
+      background: var(--blue);
+    }
+
+    .insight p {
+      margin: 0;
+
+      color: #33424f;
+
+      font-size: 11px;
+      line-height: 1.45;
+    }
+
+    .app-nav {
+      position: absolute;
+      left: 18px;
+      right: 18px;
+      bottom: 14px;
+
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+
+      padding: 11px 3px 8px;
+
+      border: 1px solid var(--line);
+      border-radius: 20px;
+
+      background: rgba(255,255,255,0.94);
+
+      backdrop-filter: blur(15px);
+    }
+
+    .app-nav-item {
+      text-align: center;
+
+      color: #8c9398;
+
+      font-size: 8px;
+      font-weight: 560;
+    }
+
+    .nav-symbol {
+      display: block;
+      margin-bottom: 4px;
+
+      font-size: 16px;
+      line-height: 1;
+    }
+
+    .app-nav-item.active {
+      color: var(--blue-dark);
+    }
+
+    /* DIVIDER */
+
+    .divider {
+      border: 0;
+      border-top: 1px solid var(--line);
+      margin: 0;
+    }
+
+    /* INTRO */
+
+    .intro {
+      padding: 112px 0 115px;
+    }
+
+    .section-grid {
+      display: grid;
+      grid-template-columns: 0.8fr 1.2fr;
+      gap: 90px;
+    }
+
+    .section-index {
+      color: var(--text-tertiary);
+
+      font-size: 13px;
+      font-weight: 600;
+    }
+
+    h2 {
+      max-width: 720px;
+
+      margin: 0;
+
+      font-size: clamp(38px, 4vw, 57px);
+      line-height: 1.06;
+      letter-spacing: -0.045em;
+      font-weight: 660;
+    }
+
+    .section-copy {
+      max-width: 650px;
+
+      margin: 26px 0 0;
+
+      color: var(--text-secondary);
+
+      font-size: 18px;
+      line-height: 1.6;
+      letter-spacing: -0.012em;
+    }
+
+    /* FEATURES */
+
+    .features {
+      padding-bottom: 120px;
+    }
+
+    .feature-list {
+      border-top: 1px solid var(--line-strong);
+    }
+
+    .feature-row {
+      display: grid;
+      grid-template-columns: 0.8fr 1.2fr;
+      gap: 90px;
+
+      padding: 38px 0;
+
+      border-bottom: 1px solid var(--line);
+    }
+
+    .feature-title {
+      font-size: 17px;
+      font-weight: 640;
+      letter-spacing: -0.02em;
+    }
+
+    .feature-text {
+      max-width: 650px;
+
+      margin: 0;
+
+      color: var(--text-secondary);
+
+      font-size: 16px;
+      line-height: 1.6;
+    }
+
+    /* PRIVACY */
+
+    .privacy-section {
+      padding: 115px 0;
+
+      background: #121619;
+      color: #f6f7f7;
+    }
+
+    .privacy-section .section-index {
+      color: #868e94;
+    }
+
+    .privacy-section h2 {
+      max-width: 760px;
+    }
+
+    .privacy-section .section-copy {
+      color: #aab0b4;
+    }
+
+    .privacy-points {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 16px;
+
+      margin-top: 64px;
+    }
+
+    .privacy-point {
+      min-height: 170px;
+      padding: 24px;
+
+      border: 1px solid #292f33;
+      border-radius: 18px;
+
+      background: #171c20;
+    }
+
+    .privacy-number {
+      margin-bottom: 46px;
+
+      color: #68747b;
+
+      font-size: 11px;
+      font-weight: 650;
+    }
+
+    .privacy-point strong {
+      display: block;
+
+      margin-bottom: 9px;
+
+      font-size: 15px;
+      font-weight: 620;
+    }
+
+    .privacy-point p {
+      margin: 0;
+
+      color: #9ca4a9;
+
+      font-size: 13px;
+      line-height: 1.5;
+    }
+
+    /* CLOSING */
+
+    .closing {
+      padding: 130px 0 120px;
+    }
+
+    .closing-inner {
+      max-width: 760px;
+    }
+
+    .closing h2 {
+      font-size: clamp(44px, 5vw, 68px);
+    }
+
+    .closing-status {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+
+      margin-top: 34px;
+      padding: 12px 16px;
+
+      border: 1px solid var(--line);
+      border-radius: 999px;
+
+      background: var(--surface);
+
+      font-size: 13px;
+      font-weight: 560;
+    }
+
+    /* FOOTER */
+
+    footer {
+      padding: 28px 0 42px;
+
+      border-top: 1px solid var(--line);
+    }
+
+    .footer-inner {
+      display: flex;
+      justify-content: space-between;
+      gap: 30px;
+
+      color: var(--text-tertiary);
+
+      font-size: 12px;
+    }
+
+    .footer-brand {
+      color: var(--text);
+      font-weight: 620;
+    }
+
+    /* RESPONSIVE */
+
+    @media (max-width: 900px) {
+      .hero {
+        padding-top: 72px;
+      }
+
+      .hero-grid {
+        grid-template-columns: 1fr;
+        gap: 70px;
+      }
+
+      .hero-copy {
+        max-width: 620px;
+      }
+
+      .section-grid,
+      .feature-row {
+        grid-template-columns: 1fr;
+        gap: 22px;
+      }
+
+      .privacy-points {
+        grid-template-columns: 1fr;
+      }
+
+      .privacy-point {
+        min-height: auto;
+      }
+
+      .privacy-number {
+        margin-bottom: 28px;
+      }
+    }
+
+    @media (max-width: 620px) {
+      .container {
+        width: min(calc(100% - 32px), var(--max-width));
+      }
+
+      header {
+        height: 68px;
+      }
+
+      .nav-right > a {
+        display: none;
+      }
+
+      .status-pill {
+        padding: 8px 11px;
+        font-size: 12px;
+      }
+
+      .hero {
+        padding: 65px 0 74px;
+      }
+
+      h1 {
+        font-size: 53px;
+        letter-spacing: -0.055em;
+      }
+
+      .hero-copy {
+        font-size: 17px;
+      }
+
+      .hero-meta {
+        align-items: flex-start;
+        flex-direction: column;
+        gap: 12px;
+      }
+
+      .phone {
+        width: min(345px, 94vw);
+      }
+
+      .intro,
+      .privacy-section {
+        padding: 85px 0;
+      }
+
+      .features {
+        padding-bottom: 90px;
+      }
+
+      .privacy-points {
+        margin-top: 45px;
+      }
+
+      .closing {
+        padding: 95px 0;
+      }
+
+      .footer-inner {
+        flex-direction: column;
+        gap: 8px;
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+  <header>
+    <div class="container nav">
+      <a class="brand" href="#">
+        <span class="brand-mark">A</span>
+        <span>Aurel</span>
+      </a>
+
+      <div class="nav-right">
+        <a href="#produkt">Produkt</a>
+        <a href="#privatsphaere">Privatsphäre</a>
+
+        <span class="status-pill">
+          <span class="status-dot"></span>
+          In Entwicklung
+        </span>
+      </div>
+    </div>
+  </header>
+
+
+  <main>
+
+    <section class="hero">
+      <div class="container hero-grid">
+
+        <div>
+          <p class="eyebrow">Personal Finance für iPhone</p>
+
+          <h1>
+            Finanzen, die sich erklären.
+          </h1>
+
+          <p class="hero-copy">
+            Aurel bringt Konten, Ausgaben und Veränderungen in einen ruhigen
+            Überblick – damit du nicht nur siehst, was passiert ist, sondern
+            dein Geld besser verstehst.
+          </p>
+
+          <div class="hero-meta">
+            <div class="availability">
+              <span class="availability-icon"></span>
+              Für iPhone in Entwicklung
+            </div>
+
+            <span class="hero-note">
+              Deutschland · Private Beta geplant
+            </span>
+          </div>
+        </div>
+
+
+        <div class="device-wrap">
+          <div class="device-shadow"></div>
+
+          <div class="phone">
+            <div class="phone-screen">
+
+              <div class="dynamic-island"></div>
+
+              <div class="app">
+
+                <div class="app-topbar">
+                  <div class="app-title">Heute</div>
+                  <div class="avatar">AM</div>
+                </div>
+
+                <div class="demo-label">Beispieldaten</div>
+
+                <div class="balance-label">Gesamtvermögen</div>
+                <div class="balance">18.420 €</div>
+                <div class="balance-change">+ 620 € diesen Monat</div>
+
+                <div class="chart-card">
+                  <div class="chart-heading">
+                    <strong>Verlauf</strong>
+                    <span>6 Monate</span>
+                  </div>
+
+                  <svg
+                    class="chart"
+                    viewBox="0 0 260 85"
+                    preserveAspectRatio="none"
+                    aria-label="Beispielhafter Vermögensverlauf"
+                  >
+                    <defs>
+                      <linearGradient id="fade" x1="0" y1="0" x2="0" y2="1">
+                        <stop
+                          offset="0%"
+                          stop-color="#75a9d6"
+                          stop-opacity="0.18"
+                        />
+                        <stop
+                          offset="100%"
+                          stop-color="#75a9d6"
+                          stop-opacity="0"
+                        />
+                      </linearGradient>
+                    </defs>
+
+                    <path
+                      d="M0,68
+                         C18,64 25,57 42,59
+                         C58,61 64,50 82,49
+                         C101,48 105,55 122,45
+                         C141,34 151,41 169,31
+                         C188,22 196,29 214,18
+                         C230,9 242,13 260,7
+                         L260,85
+                         L0,85 Z"
+                      fill="url(#fade)"
+                    />
+
+                    <path
+                      d="M0,68
+                         C18,64 25,57 42,59
+                         C58,61 64,50 82,49
+                         C101,48 105,55 122,45
+                         C141,34 151,41 169,31
+                         C188,22 196,29 214,18
+                         C230,9 242,13 260,7"
+                      fill="none"
+                      stroke="#75a9d6"
+                      stroke-width="2.3"
+                      stroke-linecap="round"
+                    />
+                  </svg>
+                </div>
+
+                <div class="stats-row">
+                  <div class="mini-card">
+                    <div class="mini-label">AUSGABEN AUGUST</div>
+                    <div class="mini-value">1.684 €</div>
+                  </div>
+
+                  <div class="mini-card">
+                    <div class="mini-label">SPARRATE</div>
+                    <div class="mini-value">22 %</div>
+                  </div>
+                </div>
+
+                <div class="insight">
+                  <div class="insight-head">
+                    <span class="spark"></span>
+                    Diese Woche
+                  </div>
+
+                  <p>
+                    Deine Ausgaben für Lebensmittel liegen bisher etwas
+                    über deinem üblichen Wochenwert.
+                  </p>
+                </div>
+
+              </div>
+
+              <div class="app-nav">
+                <div class="app-nav-item active">
+                  <span class="nav-symbol">⌂</span>
+                  Heute
+                </div>
+
+                <div class="app-nav-item">
+                  <span class="nav-symbol">≡</span>
+                  Umsätze
+                </div>
+
+                <div class="app-nav-item">
+                  <span class="nav-symbol">◫</span>
+                  Ausgaben
+                </div>
+
+                <div class="app-nav-item">
+                  <span class="nav-symbol">○</span>
+                  Aurel
+                </div>
+              </div>
+
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+
+    <hr class="divider">
+
+
+    <section class="intro" id="produkt">
+      <div class="container section-grid">
+
+        <div class="section-index">
+          01 — Überblick
+        </div>
+
+        <div>
+          <h2>
+            Ein Finanzbild, das nicht nach Arbeit aussieht.
+          </h2>
+
+          <p class="section-copy">
+            Konten und Transaktionen sind nur der Anfang. Aurel ordnet deine
+            Finanzdaten so, dass Zusammenhänge sichtbar werden – ohne dass du
+            jeden Monat erst Tabellen, Kategorien und einzelne Buchungen
+            zusammensetzen musst.
+          </p>
+        </div>
+
+      </div>
+    </section>
+
+
+    <section class="features">
+      <div class="container feature-list">
+
+        <div class="feature-row">
+          <div class="feature-title">
+            Ein ruhiger Überblick
+          </div>
+
+          <p class="feature-text">
+            Kontostände, Ausgaben und Entwicklungen werden auf das reduziert,
+            was gerade relevant ist. Zahlen zuerst, Dekoration danach.
+          </p>
+        </div>
+
+        <div class="feature-row">
+          <div class="feature-title">
+            Veränderungen erkennen
+          </div>
+
+          <p class="feature-text">
+            Aurel soll nicht nur einzelne Umsätze zeigen. Der interessantere
+            Teil ist, was sich über Wochen und Monate verändert – bei Händlern,
+            Kategorien und deinem eigenen Verhalten.
+          </p>
+        </div>
+
+        <div class="feature-row">
+          <div class="feature-title">
+            Fragen statt Menüs
+          </div>
+
+          <p class="feature-text">
+            Manche Antworten sollten keine Suche durch fünf Ansichten brauchen.
+            Aurel wird dafür entwickelt, Fragen zu deinen eigenen Finanzdaten
+            verständlich und nachvollziehbar zu beantworten.
+          </p>
+        </div>
+
+      </div>
+    </section>
+
+
+    <section class="privacy-section" id="privatsphaere">
+      <div class="container">
+
+        <div class="section-grid">
+
+          <div class="section-index">
+            02 — Privatsphäre
+          </div>
+
+          <div>
+            <h2>
+              Finanzdaten verdienen eine andere Architektur.
+            </h2>
+
+            <p class="section-copy">
+              Aurel wird von Anfang an mit Datenminimierung und lokaler
+              Verarbeitung als technische Grundsätze entwickelt – nicht als
+              Datenschutz-Text, der später über das Produkt gelegt wird.
+            </p>
+          </div>
+
+        </div>
+
+
+        <div class="privacy-points">
+
+          <div class="privacy-point">
+            <div class="privacy-number">01</div>
+
+            <strong>Local first</strong>
+
+            <p>
+              Wo Verarbeitung sinnvoll auf deinem Gerät stattfinden kann,
+              soll sie dort stattfinden.
+            </p>
+          </div>
+
+
+          <div class="privacy-point">
+            <div class="privacy-number">02</div>
+
+            <strong>Daten minimieren</strong>
+
+            <p>
+              Externe Verarbeitung soll nur die Informationen erhalten, die
+              für eine konkrete Funktion tatsächlich erforderlich sind.
+            </p>
+          </div>
+
+
+          <div class="privacy-point">
+            <div class="privacy-number">03</div>
+
+            <strong>Nachvollziehbare Zahlen</strong>
+
+            <p>
+              Finanzielle Berechnungen brauchen reproduzierbare Logik und
+              überprüfbare Daten – keine erfundenen Werte.
+            </p>
+          </div>
+
+        </div>
+
+      </div>
+    </section>
+
+
+    <section class="closing">
+      <div class="container">
+
+        <div class="closing-inner">
+
+          <p class="eyebrow">Aurel Finance</p>
+
+          <h2>
+            Weniger Finanz-Dashboard. Mehr finanzieller Durchblick.
+          </h2>
+
+          <div class="closing-status">
+            <span class="status-dot"></span>
+            Derzeit in Entwicklung für iPhone
+          </div>
+
+        </div>
+
+      </div>
+    </section>
+
+  </main>
+
+
+  <footer>
+    <div class="container footer-inner">
+      <div>
+        <span class="footer-brand">Aurel</span>
+        &nbsp;·&nbsp; Köln, Deutschland
+      </div>
+
+      <div>
+        © 2026 Aurel Finance · In Entwicklung
+      </div>
+    </div>
+  </footer>
+
+</body>
+</html>
