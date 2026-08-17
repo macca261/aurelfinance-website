@@ -4,33 +4,45 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-  <title>Aurel — Deine Finanzen verstehen</title>
+  <title>Aurel — Finanzen im Zusammenhang</title>
 
   <meta
     name="description"
-    content="Aurel bringt Konten, Ausgaben und finanzielle Veränderungen in einen ruhigen, privaten Überblick. Für iPhone in Entwicklung."
+    content="Aurel verbindet Konten, Ausgaben und Veränderungen und hilft dir zu verstehen, was sich mit deinem Geld tatsächlich verändert."
   >
+
+  <meta name="theme-color" content="#78afe8">
+
+  <meta property="og:title" content="Aurel — Finanzen im Zusammenhang">
+  <meta
+    property="og:description"
+    content="Nicht nur sehen, was ausgegeben wurde. Verstehen, was sich verändert."
+  >
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://aurelfinance.de/">
+
+  <link rel="canonical" href="https://aurelfinance.de/">
 
   <style>
     :root {
-      --background: #fbfbfa;
-      --surface: #ffffff;
-      --surface-soft: #f5f7f8;
+      --blue: #78afe8;
+      --blue-light: #dcecf9;
+      --blue-dark: #2f6695;
 
-      --text: #111417;
-      --text-secondary: #60676d;
-      --text-tertiary: #8a9197;
+      --ink: #0e1114;
+      --ink-soft: #4f575e;
+      --ink-muted: #858c92;
 
-      --line: #e5e8ea;
-      --line-strong: #d9dddf;
+      --white: #ffffff;
+      --off-white: #f5f5f2;
+      --paper: #fbfbf9;
 
-      --blue: #75a9d6;
-      --blue-dark: #356f9f;
-      --blue-soft: #eaf3fa;
+      --line: rgba(14, 17, 20, 0.13);
+      --line-soft: rgba(14, 17, 20, 0.08);
 
-      --green: #2e8668;
+      --green: #24785f;
 
-      --max-width: 1180px;
+      --page: 1240px;
     }
 
     * {
@@ -43,8 +55,8 @@
 
     body {
       margin: 0;
-      background: var(--background);
-      color: var(--text);
+      background: var(--paper);
+      color: var(--ink);
       font-family:
         -apple-system,
         BlinkMacSystemFont,
@@ -56,32 +68,35 @@
       -webkit-font-smoothing: antialiased;
     }
 
+    button,
+    select {
+      font: inherit;
+    }
+
     a {
       color: inherit;
       text-decoration: none;
     }
 
-    .container {
-      width: min(calc(100% - 48px), var(--max-width));
+    .page {
+      width: min(calc(100% - 56px), var(--page));
       margin: 0 auto;
     }
 
-    /* HEADER */
+    /* ---------------- HEADER ---------------- */
 
     header {
-      height: 82px;
-      display: flex;
-      align-items: center;
-      border-bottom: 1px solid rgba(17, 20, 23, 0.06);
-      background: rgba(251, 251, 250, 0.92);
-      position: sticky;
+      position: absolute;
       top: 0;
-      z-index: 50;
-      backdrop-filter: blur(18px);
-      -webkit-backdrop-filter: blur(18px);
+      left: 0;
+      right: 0;
+      z-index: 20;
+      height: 84px;
+      color: white;
     }
 
     .nav {
+      height: 100%;
       display: flex;
       align-items: center;
       justify-content: space-between;
@@ -90,526 +105,891 @@
     .brand {
       display: flex;
       align-items: center;
-      gap: 11px;
-      font-size: 20px;
-      font-weight: 670;
-      letter-spacing: -0.4px;
+      gap: 12px;
+
+      font-size: 21px;
+      font-weight: 700;
+      letter-spacing: -0.04em;
     }
 
     .brand-mark {
-      width: 31px;
-      height: 31px;
+      width: 34px;
+      height: 34px;
+
       display: grid;
       place-items: center;
-      border-radius: 9px;
-      background: var(--text);
+
+      background: var(--ink);
       color: white;
+
+      border-radius: 10px;
+
       font-size: 17px;
-      font-weight: 700;
-      letter-spacing: -0.8px;
+      font-weight: 760;
     }
 
-    .nav-right {
+    .nav-links {
       display: flex;
       align-items: center;
-      gap: 28px;
-      color: var(--text-secondary);
-      font-size: 14px;
-      font-weight: 520;
-    }
+      gap: 34px;
 
-    .status-pill {
-      display: inline-flex;
-      align-items: center;
-      gap: 8px;
-      padding: 10px 14px;
-      background: var(--surface);
-      border: 1px solid var(--line);
-      border-radius: 999px;
-      color: var(--text);
-    }
-
-    .status-dot {
-      width: 7px;
-      height: 7px;
-      border-radius: 50%;
-      background: var(--blue);
-    }
-
-    /* HERO */
-
-    .hero {
-      padding: 72px 0 92px;
-    }
-
-    .hero-grid {
-      display: grid;
-      grid-template-columns: minmax(0, 1fr) 470px;
-      gap: 95px;
-      align-items: center;
-    }
-
-    .eyebrow {
-      margin: 0 0 23px;
-      color: var(--blue-dark);
-      font-size: 13px;
-      font-weight: 650;
-      letter-spacing: 0.08em;
-      text-transform: uppercase;
-    }
-
-    h1 {
-      max-width: 680px;
-      margin: 0;
-      font-size: clamp(56px, 6.2vw, 82px);
-      line-height: 0.98;
-      letter-spacing: -0.058em;
-      font-weight: 680;
-    }
-
-    .hero-copy {
-      max-width: 570px;
-      margin: 30px 0 0;
-      color: var(--text-secondary);
-      font-size: 19px;
-      line-height: 1.55;
-      letter-spacing: -0.015em;
-    }
-
-    .hero-meta {
-      display: flex;
-      align-items: center;
-      gap: 18px;
-      margin-top: 35px;
-    }
-
-    .availability {
-      display: inline-flex;
-      align-items: center;
-      gap: 9px;
-      color: var(--text);
       font-size: 14px;
       font-weight: 570;
     }
 
-    .availability-icon {
-      width: 34px;
-      height: 34px;
-      display: grid;
-      place-items: center;
-      border-radius: 10px;
-      border: 1px solid var(--line);
-      background: var(--surface);
-      font-size: 17px;
+    .nav-links a {
+      opacity: 0.88;
     }
 
-    .hero-note {
-      color: var(--text-tertiary);
+    .nav-links a:hover {
+      opacity: 1;
+    }
+
+    .development {
+      padding: 10px 15px;
+
+      background: rgba(255, 255, 255, 0.94);
+      color: var(--ink);
+
+      border-radius: 999px;
+
       font-size: 13px;
+      font-weight: 650;
     }
 
-    /* PHONE */
+    /* ---------------- HERO ---------------- */
 
-    .device-wrap {
-      position: relative;
-      display: flex;
-      justify-content: center;
-    }
-
-    .device-shadow {
-      position: absolute;
-      left: 50%;
-      bottom: -24px;
-      width: 78%;
-      height: 60px;
-      transform: translateX(-50%);
-      border-radius: 50%;
-      background: rgba(32, 44, 53, 0.10);
-      filter: blur(28px);
-    }
-
-    .phone {
-      position: relative;
-      width: 345px;
-      height: 696px;
-      padding: 10px;
-      border: 1px solid #cbd0d4;
-      border-radius: 52px;
-      background: #1c2024;
-      box-shadow:
-        0 35px 80px rgba(25, 34, 42, 0.14),
-        0 8px 22px rgba(25, 34, 42, 0.08);
-    }
-
-    .phone-screen {
-      position: relative;
-      height: 100%;
+    .hero {
+      min-height: 820px;
+      background: var(--blue);
       overflow: hidden;
-      border-radius: 43px;
-      background: #f8f9f9;
+      position: relative;
     }
 
-    .dynamic-island {
-      position: absolute;
-      top: 12px;
-      left: 50%;
-      z-index: 10;
-      width: 92px;
-      height: 27px;
-      transform: translateX(-50%);
-      border-radius: 20px;
-      background: #090a0b;
-    }
+    .hero-inner {
+      min-height: 820px;
 
-    .app {
-      height: 100%;
-      padding: 56px 20px 20px;
-    }
-
-    .app-topbar {
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      margin-bottom: 24px;
-    }
-
-    .app-title {
-      font-size: 22px;
-      font-weight: 690;
-      letter-spacing: -0.7px;
-    }
-
-    .avatar {
-      width: 32px;
-      height: 32px;
       display: grid;
-      place-items: center;
-      border-radius: 50%;
-      background: var(--blue-soft);
-      color: var(--blue-dark);
-      font-size: 12px;
-      font-weight: 700;
+      grid-template-columns: minmax(0, 1.15fr) minmax(420px, 0.85fr);
+      gap: 60px;
+      align-items: center;
+
+      padding-top: 96px;
     }
 
-    .demo-label {
-      display: inline-flex;
-      align-items: center;
-      margin-bottom: 10px;
-      padding: 5px 8px;
-      border-radius: 7px;
-      background: #edf0f2;
-      color: #747b80;
-      font-size: 9px;
+    .hero-copy {
+      position: relative;
+      z-index: 4;
+    }
+
+    .hero-kicker {
+      margin: 0 0 22px;
+
+      font-size: 14px;
       font-weight: 650;
       letter-spacing: 0.06em;
       text-transform: uppercase;
     }
 
-    .balance-label {
-      color: var(--text-secondary);
-      font-size: 12px;
-      font-weight: 520;
+    h1 {
+      max-width: 790px;
+
+      margin: 0;
+
+      font-size: clamp(72px, 7.3vw, 116px);
+      line-height: 0.9;
+      letter-spacing: -0.072em;
+      font-weight: 610;
     }
 
-    .balance {
-      margin-top: 5px;
-      font-size: 35px;
-      line-height: 1;
-      font-weight: 680;
-      letter-spacing: -1.7px;
+    .hero-description {
+      max-width: 590px;
+
+      margin: 35px 0 0;
+
+      font-size: 20px;
+      line-height: 1.48;
+      letter-spacing: -0.022em;
     }
 
-    .balance-change {
-      margin-top: 8px;
-      color: var(--green);
-      font-size: 11px;
-      font-weight: 600;
-    }
-
-    .chart-card {
-      margin-top: 22px;
-      padding: 17px;
-      border: 1px solid var(--line);
-      border-radius: 19px;
-      background: var(--surface);
-    }
-
-    .chart-heading {
-      display: flex;
-      justify-content: space-between;
-      align-items: baseline;
-      margin-bottom: 13px;
-    }
-
-    .chart-heading strong {
-      font-size: 12px;
-      font-weight: 640;
-    }
-
-    .chart-heading span {
-      color: var(--text-tertiary);
-      font-size: 10px;
-    }
-
-    .chart {
-      width: 100%;
-      height: 85px;
-      display: block;
-    }
-
-    .stats-row {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 10px;
-      margin-top: 10px;
-    }
-
-    .mini-card {
-      padding: 14px;
-      border: 1px solid var(--line);
-      border-radius: 16px;
-      background: var(--surface);
-    }
-
-    .mini-label {
-      margin-bottom: 6px;
-      color: var(--text-tertiary);
-      font-size: 9px;
-      font-weight: 600;
-    }
-
-    .mini-value {
-      font-size: 17px;
-      font-weight: 670;
-      letter-spacing: -0.5px;
-    }
-
-    .insight {
-      margin-top: 10px;
-      padding: 15px;
-      border-radius: 17px;
-      background: var(--blue-soft);
-    }
-
-    .insight-head {
+    .hero-actions {
       display: flex;
       align-items: center;
-      gap: 7px;
-      margin-bottom: 7px;
-      color: var(--blue-dark);
-      font-size: 10px;
-      font-weight: 680;
+      gap: 17px;
+
+      margin-top: 36px;
     }
 
-    .spark {
-      width: 8px;
-      height: 8px;
-      border-radius: 50%;
-      background: var(--blue);
+    .primary-button {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+
+      min-height: 52px;
+      padding: 0 23px;
+
+      background: var(--ink);
+      color: white;
+
+      border-radius: 999px;
+
+      font-size: 14px;
+      font-weight: 650;
     }
 
-    .insight p {
-      margin: 0;
-      color: #33424f;
-      font-size: 11px;
-      line-height: 1.45;
-    }
-
-    .app-nav {
-      position: absolute;
-      left: 18px;
-      right: 18px;
-      bottom: 14px;
-      display: grid;
-      grid-template-columns: repeat(4, 1fr);
-      padding: 11px 3px 8px;
-      border: 1px solid var(--line);
-      border-radius: 20px;
-      background: rgba(255,255,255,0.94);
-      backdrop-filter: blur(15px);
-    }
-
-    .app-nav-item {
-      text-align: center;
-      color: #8c9398;
-      font-size: 8px;
+    .hero-status {
+      font-size: 13px;
       font-weight: 560;
     }
 
-    .nav-symbol {
-      display: block;
-      margin-bottom: 4px;
-      font-size: 16px;
-      line-height: 1;
+    /* ---------------- HERO PHONE ---------------- */
+
+    .hero-product {
+      position: relative;
+      align-self: end;
+      height: 695px;
     }
 
-    .app-nav-item.active {
-      color: var(--blue-dark);
+    .phone {
+      position: absolute;
+      bottom: -48px;
+      left: 50%;
+
+      width: 365px;
+      height: 720px;
+
+      transform: translateX(-50%) rotate(1deg);
+
+      background: #191d20;
+      border: 1px solid rgba(255,255,255,0.38);
+      border-radius: 58px;
+      padding: 10px;
+
+      box-shadow: 0 44px 90px rgba(28, 45, 61, 0.22);
     }
 
-    /* DIVIDER */
+    .screen {
+      position: relative;
 
-    .divider {
-      border: 0;
-      border-top: 1px solid var(--line);
-      margin: 0;
+      height: 100%;
+      overflow: hidden;
+
+      background: #f7f8f8;
+      border-radius: 49px;
+
+      color: var(--ink);
     }
 
-    /* INTRO */
+    .island {
+      position: absolute;
+      top: 12px;
+      left: 50%;
+      z-index: 5;
 
-    .intro {
-      padding: 112px 0 115px;
-    }
+      width: 94px;
+      height: 28px;
 
-    .section-grid {
-      display: grid;
-      grid-template-columns: 0.8fr 1.2fr;
-      gap: 90px;
-    }
+      transform: translateX(-50%);
 
-    .section-index {
-      color: var(--text-tertiary);
-      font-size: 13px;
-      font-weight: 600;
-    }
-
-    h2 {
-      max-width: 720px;
-      margin: 0;
-      font-size: clamp(38px, 4vw, 57px);
-      line-height: 1.06;
-      letter-spacing: -0.045em;
-      font-weight: 660;
-    }
-
-    .section-copy {
-      max-width: 650px;
-      margin: 26px 0 0;
-      color: var(--text-secondary);
-      font-size: 18px;
-      line-height: 1.6;
-      letter-spacing: -0.012em;
-    }
-
-    /* FEATURES */
-
-    .features {
-      padding-bottom: 120px;
-    }
-
-    .feature-list {
-      border-top: 1px solid var(--line-strong);
-    }
-
-    .feature-row {
-      display: grid;
-      grid-template-columns: 0.8fr 1.2fr;
-      gap: 90px;
-      padding: 38px 0;
-      border-bottom: 1px solid var(--line);
-    }
-
-    .feature-title {
-      font-size: 17px;
-      font-weight: 640;
-      letter-spacing: -0.02em;
-    }
-
-    .feature-text {
-      max-width: 650px;
-      margin: 0;
-      color: var(--text-secondary);
-      font-size: 16px;
-      line-height: 1.6;
-    }
-
-    /* PRIVACY */
-
-    .privacy-section {
-      padding: 115px 0;
-      background: #121619;
-      color: #f6f7f7;
-    }
-
-    .privacy-section .section-index {
-      color: #868e94;
-    }
-
-    .privacy-section h2 {
-      max-width: 760px;
-    }
-
-    .privacy-section .section-copy {
-      color: #aab0b4;
-    }
-
-    .privacy-points {
-      display: grid;
-      grid-template-columns: repeat(3, 1fr);
-      gap: 16px;
-      margin-top: 64px;
-    }
-
-    .privacy-point {
-      min-height: 170px;
-      padding: 24px;
-      border: 1px solid #292f33;
+      background: #080909;
       border-radius: 18px;
-      background: #171c20;
     }
 
-    .privacy-number {
-      margin-bottom: 46px;
-      color: #68747b;
+    .phone-content {
+      padding: 59px 20px 90px;
+    }
+
+    .phone-top {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+
+      margin-bottom: 28px;
+    }
+
+    .phone-title {
+      font-size: 23px;
+      font-weight: 720;
+      letter-spacing: -0.04em;
+    }
+
+    .phone-avatar {
+      width: 34px;
+      height: 34px;
+
+      display: grid;
+      place-items: center;
+
+      border-radius: 50%;
+      background: var(--blue-light);
+      color: var(--blue-dark);
+
+      font-size: 11px;
+      font-weight: 750;
+    }
+
+    .demo {
+      display: inline-block;
+
+      margin-bottom: 11px;
+      padding: 5px 8px;
+
+      background: #e9ecee;
+
+      border-radius: 6px;
+
+      color: #747c82;
+
+      font-size: 8px;
+      letter-spacing: 0.09em;
+      font-weight: 750;
+    }
+
+    .phone-label {
+      color: #666d72;
+
+      font-size: 12px;
+      font-weight: 540;
+    }
+
+    .phone-balance {
+      margin-top: 4px;
+
+      font-size: 38px;
+      font-weight: 700;
+      letter-spacing: -0.055em;
+    }
+
+    .phone-change {
+      margin-top: 5px;
+
+      color: var(--green);
+
       font-size: 11px;
       font-weight: 650;
     }
 
-    .privacy-point strong {
+    .phone-chart {
+      margin-top: 24px;
+      padding: 17px 16px;
+
+      background: white;
+      border: 1px solid #e1e4e5;
+      border-radius: 19px;
+    }
+
+    .chart-head {
+      display: flex;
+      justify-content: space-between;
+
+      margin-bottom: 14px;
+
+      font-size: 11px;
+      font-weight: 650;
+    }
+
+    .chart-head span {
+      color: #8a9196;
+      font-size: 9px;
+      font-weight: 520;
+    }
+
+    .chart-svg {
       display: block;
-      margin-bottom: 9px;
+      width: 100%;
+      height: 88px;
+    }
+
+    .phone-two {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 9px;
+
+      margin-top: 9px;
+    }
+
+    .phone-stat {
+      padding: 13px;
+
+      background: white;
+      border: 1px solid #e1e4e5;
+      border-radius: 16px;
+    }
+
+    .phone-stat small {
+      display: block;
+
+      margin-bottom: 5px;
+
+      color: #8a9095;
+
+      font-size: 8px;
+      font-weight: 650;
+      letter-spacing: 0.04em;
+    }
+
+    .phone-stat strong {
+      font-size: 17px;
+      letter-spacing: -0.03em;
+    }
+
+    .phone-insight {
+      margin-top: 9px;
+      padding: 14px;
+
+      background: #e6f1fa;
+      border-radius: 17px;
+    }
+
+    .phone-insight-title {
+      margin-bottom: 6px;
+
+      color: var(--blue-dark);
+
+      font-size: 9px;
+      font-weight: 720;
+    }
+
+    .phone-insight p {
+      margin: 0;
+
+      color: #374650;
+
+      font-size: 10px;
+      line-height: 1.45;
+    }
+
+    .phone-nav {
+      position: absolute;
+      left: 17px;
+      right: 17px;
+      bottom: 15px;
+
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+
+      padding: 10px 3px 8px;
+
+      background: rgba(255,255,255,0.96);
+      border: 1px solid #e0e3e4;
+      border-radius: 20px;
+
+      text-align: center;
+      color: #8c9398;
+
+      font-size: 8px;
+      font-weight: 580;
+    }
+
+    .phone-nav b {
+      display: block;
+
+      margin-bottom: 4px;
+
       font-size: 15px;
+      font-weight: 500;
+      line-height: 1;
+    }
+
+    .phone-nav .active {
+      color: var(--blue-dark);
+    }
+
+    .floating-transaction {
+      position: absolute;
+      z-index: 8;
+      right: -5px;
+      bottom: 154px;
+
+      width: 265px;
+      padding: 16px 17px;
+
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+
+      background: white;
+      color: var(--ink);
+
+      border: 1px solid rgba(15, 18, 20, 0.1);
+      border-radius: 19px;
+
+      box-shadow: 0 20px 50px rgba(34, 50, 64, 0.16);
+    }
+
+    .transaction-left {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+    }
+
+    .merchant-icon {
+      width: 38px;
+      height: 38px;
+
+      display: grid;
+      place-items: center;
+
+      background: #20262a;
+      color: white;
+
+      border-radius: 11px;
+
+      font-size: 12px;
+      font-weight: 750;
+    }
+
+    .transaction-name {
+      font-size: 13px;
+      font-weight: 680;
+    }
+
+    .transaction-meta {
+      margin-top: 3px;
+
+      color: var(--ink-muted);
+
+      font-size: 10px;
+    }
+
+    .transaction-price {
+      font-size: 14px;
+      font-weight: 680;
+    }
+
+    /* ---------------- INTRO ---------------- */
+
+    .statement {
+      padding: 145px 0 125px;
+    }
+
+    .statement-grid {
+      display: grid;
+      grid-template-columns: 0.75fr 1.25fr;
+      gap: 100px;
+    }
+
+    .small-label {
+      padding-top: 9px;
+
+      color: var(--ink-muted);
+
+      font-size: 13px;
       font-weight: 620;
     }
 
-    .privacy-point p {
+    h2 {
+      max-width: 860px;
+
       margin: 0;
-      color: #9ca4a9;
+
+      font-size: clamp(48px, 5vw, 74px);
+      line-height: 1.01;
+      letter-spacing: -0.058em;
+      font-weight: 600;
+    }
+
+    .large-copy {
+      max-width: 680px;
+
+      margin: 31px 0 0;
+
+      color: var(--ink-soft);
+
+      font-size: 19px;
+      line-height: 1.55;
+      letter-spacing: -0.02em;
+    }
+
+    /* ---------------- PRINCIPLES ---------------- */
+
+    .principles {
+      padding-bottom: 130px;
+    }
+
+    .principle {
+      display: grid;
+      grid-template-columns: 0.75fr 1.25fr;
+      gap: 100px;
+
+      padding: 34px 0;
+
+      border-top: 1px solid var(--line);
+    }
+
+    .principle:last-child {
+      border-bottom: 1px solid var(--line);
+    }
+
+    .principle-title {
+      font-size: 19px;
+      font-weight: 640;
+      letter-spacing: -0.025em;
+    }
+
+    .principle p {
+      max-width: 660px;
+
+      margin: 0;
+
+      color: var(--ink-soft);
+
+      font-size: 16px;
+      line-height: 1.55;
+    }
+
+    /* ---------------- PLAYGROUND ---------------- */
+
+    .playground {
+      padding: 120px 0 135px;
+      background: var(--off-white);
+    }
+
+    .playground-head {
+      display: flex;
+      align-items: end;
+      justify-content: space-between;
+      gap: 50px;
+
+      margin-bottom: 65px;
+    }
+
+    .playground-head h2 {
+      max-width: 720px;
+    }
+
+    .playground-note {
+      max-width: 300px;
+
+      margin: 0 0 5px;
+
+      color: var(--ink-muted);
+
       font-size: 13px;
       line-height: 1.5;
     }
 
-    /* CLOSING */
-
-    .closing {
-      padding: 130px 0 120px;
+    .experiments {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 18px;
     }
 
-    .closing-inner {
+    .experiment {
+      min-height: 480px;
+      padding: 31px;
+
+      display: flex;
+      flex-direction: column;
+
+      background: white;
+
+      border: 1px solid var(--line-soft);
+      border-radius: 24px;
+    }
+
+    .experiment-label {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+
+      color: var(--ink-muted);
+
+      font-size: 11px;
+      font-weight: 650;
+      letter-spacing: 0.045em;
+      text-transform: uppercase;
+    }
+
+    .demo-tag {
+      padding: 5px 8px;
+
+      background: #f0f1ef;
+      border-radius: 6px;
+
+      color: #7b8287;
+
+      font-size: 9px;
+      letter-spacing: 0.05em;
+    }
+
+    .random-content {
+      flex: 1;
+
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+
+      padding: 25px 4px 35px;
+    }
+
+    .random-number {
+      margin-bottom: 17px;
+
+      font-size: clamp(58px, 5.5vw, 86px);
+      line-height: 0.95;
+      letter-spacing: -0.07em;
+      font-weight: 630;
+    }
+
+    .random-copy {
+      max-width: 480px;
+
+      margin: 0;
+
+      color: var(--ink-soft);
+
+      font-size: 18px;
+      line-height: 1.45;
+      letter-spacing: -0.022em;
+    }
+
+    .shuffle {
+      align-self: flex-start;
+
+      border: 0;
+
+      padding: 12px 16px;
+
+      background: var(--ink);
+      color: white;
+
+      border-radius: 999px;
+
+      cursor: pointer;
+
+      font-size: 13px;
+      font-weight: 650;
+    }
+
+    .shuffle:hover {
+      opacity: 0.88;
+    }
+
+    /* ---------------- COMPARE ---------------- */
+
+    .compare-controls {
+      display: grid;
+      grid-template-columns: 1fr auto 1fr;
+      gap: 11px;
+      align-items: center;
+
+      margin: 44px 0 36px;
+    }
+
+    .compare-controls select {
+      width: 100%;
+
+      appearance: none;
+
+      padding: 14px 15px;
+
+      background: #f5f6f4;
+      color: var(--ink);
+
+      border: 1px solid var(--line);
+      border-radius: 12px;
+
+      outline: none;
+
+      font-size: 14px;
+      font-weight: 620;
+    }
+
+    .versus {
+      color: var(--ink-muted);
+
+      font-size: 11px;
+      font-weight: 650;
+      text-transform: uppercase;
+    }
+
+    .comparison {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 10px;
+    }
+
+    .merchant-result {
+      padding: 20px;
+
+      border-top: 1px solid var(--line);
+    }
+
+    .merchant-name {
+      margin-bottom: 20px;
+
+      font-size: 14px;
+      font-weight: 680;
+    }
+
+    .merchant-average {
+      font-size: 36px;
+      letter-spacing: -0.055em;
+      font-weight: 640;
+    }
+
+    .merchant-average span {
+      display: block;
+
+      margin-top: 5px;
+
+      color: var(--ink-muted);
+
+      font-size: 10px;
+      letter-spacing: 0;
+      font-weight: 550;
+    }
+
+    .merchant-detail {
+      margin-top: 20px;
+
+      color: var(--ink-soft);
+
+      font-size: 12px;
+      line-height: 1.5;
+    }
+
+    .compare-insight {
+      margin-top: auto;
+      padding: 18px 0 0;
+
+      border-top: 1px solid var(--line);
+    }
+
+    .compare-insight strong {
+      display: block;
+
+      margin-bottom: 6px;
+
+      font-size: 13px;
+    }
+
+    .compare-insight p {
+      margin: 0;
+
+      color: var(--ink-soft);
+
+      font-size: 13px;
+      line-height: 1.5;
+    }
+
+    /* ---------------- PRIVACY ---------------- */
+
+    .privacy {
+      padding: 145px 0;
+      background: var(--ink);
+      color: white;
+    }
+
+    .privacy-grid {
+      display: grid;
+      grid-template-columns: 0.8fr 1.2fr;
+      gap: 90px;
+    }
+
+    .privacy .small-label {
+      color: #7f898f;
+    }
+
+    .privacy-copy h2 {
       max-width: 760px;
     }
 
+    .privacy-copy > p {
+      max-width: 680px;
+
+      margin: 31px 0 0;
+
+      color: #aeb4b8;
+
+      font-size: 18px;
+      line-height: 1.55;
+    }
+
+    .privacy-list {
+      margin-top: 60px;
+    }
+
+    .privacy-row {
+      display: grid;
+      grid-template-columns: 190px 1fr;
+      gap: 40px;
+
+      padding: 25px 0;
+
+      border-top: 1px solid #2d3337;
+    }
+
+    .privacy-row:last-child {
+      border-bottom: 1px solid #2d3337;
+    }
+
+    .privacy-row strong {
+      font-size: 14px;
+      font-weight: 630;
+    }
+
+    .privacy-row p {
+      max-width: 530px;
+
+      margin: 0;
+
+      color: #9da5aa;
+
+      font-size: 14px;
+      line-height: 1.55;
+    }
+
+    /* ---------------- CLOSING ---------------- */
+
+    .closing {
+      padding: 145px 0 130px;
+    }
+
+    .closing-inner {
+      max-width: 920px;
+    }
+
+    .closing-label {
+      margin-bottom: 26px;
+
+      color: var(--blue-dark);
+
+      font-size: 13px;
+      font-weight: 650;
+      letter-spacing: 0.07em;
+      text-transform: uppercase;
+    }
+
     .closing h2 {
-      font-size: clamp(44px, 5vw, 68px);
+      font-size: clamp(54px, 6vw, 86px);
     }
 
     .closing-status {
       display: inline-flex;
       align-items: center;
-      gap: 10px;
-      margin-top: 34px;
-      padding: 12px 16px;
-      border: 1px solid var(--line);
-      border-radius: 999px;
-      background: var(--surface);
+      gap: 9px;
+
+      margin-top: 38px;
+
       font-size: 13px;
-      font-weight: 560;
+      font-weight: 620;
     }
 
-    /* FOOTER */
+    .closing-dot {
+      width: 8px;
+      height: 8px;
+
+      border-radius: 50%;
+      background: var(--blue);
+    }
+
+    /* ---------------- FOOTER ---------------- */
 
     footer {
-      padding: 28px 0 42px;
+      padding: 26px 0 40px;
+
       border-top: 1px solid var(--line);
     }
 
@@ -617,102 +997,142 @@
       display: flex;
       justify-content: space-between;
       gap: 30px;
-      color: var(--text-tertiary);
+
+      color: var(--ink-muted);
+
       font-size: 12px;
     }
 
-    .footer-brand {
-      color: var(--text);
-      font-weight: 620;
+    .footer-inner strong {
+      color: var(--ink);
+      font-weight: 670;
     }
 
-    /* RESPONSIVE */
+    /* ---------------- RESPONSIVE ---------------- */
 
-    @media (max-width: 900px) {
-      .hero {
-        padding-top: 62px;
-      }
-
-      .hero-grid {
+    @media (max-width: 980px) {
+      .hero-inner {
         grid-template-columns: 1fr;
-        gap: 70px;
-      }
-
-      .hero-copy {
-        max-width: 620px;
-      }
-
-      .section-grid,
-      .feature-row {
-        grid-template-columns: 1fr;
-        gap: 22px;
-      }
-
-      .privacy-points {
-        grid-template-columns: 1fr;
-      }
-
-      .privacy-point {
         min-height: auto;
+
+        padding-top: 150px;
       }
 
-      .privacy-number {
-        margin-bottom: 28px;
+      .hero {
+        min-height: 1300px;
+      }
+
+      .hero-product {
+        height: 670px;
+      }
+
+      .statement-grid,
+      .principle,
+      .privacy-grid {
+        grid-template-columns: 1fr;
+        gap: 28px;
+      }
+
+      .experiments {
+        grid-template-columns: 1fr;
+      }
+
+      .playground-head {
+        align-items: flex-start;
+        flex-direction: column;
+      }
+
+      .playground-note {
+        max-width: 500px;
       }
     }
 
-    @media (max-width: 620px) {
-      .container {
-        width: min(calc(100% - 32px), var(--max-width));
+    @media (max-width: 680px) {
+      .page {
+        width: min(calc(100% - 32px), var(--page));
       }
 
       header {
-        height: 68px;
+        height: 70px;
       }
 
-      .nav-right > a {
+      .nav-links a {
         display: none;
       }
 
-      .status-pill {
+      .development {
         padding: 8px 11px;
-        font-size: 12px;
+        font-size: 11px;
       }
 
       .hero {
-        padding: 52px 0 74px;
+        min-height: 1160px;
+      }
+
+      .hero-inner {
+        padding-top: 125px;
       }
 
       h1 {
-        font-size: 53px;
-        letter-spacing: -0.055em;
+        font-size: 64px;
       }
 
-      .hero-copy {
+      .hero-description {
         font-size: 17px;
       }
 
-      .hero-meta {
+      .hero-actions {
         align-items: flex-start;
         flex-direction: column;
-        gap: 12px;
+      }
+
+      .hero-product {
+        height: 610px;
       }
 
       .phone {
-        width: min(345px, 94vw);
+        width: 320px;
+        height: 635px;
       }
 
-      .intro,
-      .privacy-section {
-        padding: 85px 0;
+      .floating-transaction {
+        right: -10px;
+        bottom: 115px;
+        width: 230px;
       }
 
-      .features {
+      .statement {
+        padding: 95px 0 80px;
+      }
+
+      .principles {
         padding-bottom: 90px;
       }
 
-      .privacy-points {
-        margin-top: 45px;
+      .playground {
+        padding: 90px 0;
+      }
+
+      .experiment {
+        min-height: 440px;
+        padding: 23px;
+      }
+
+      .compare-controls {
+        grid-template-columns: 1fr;
+      }
+
+      .versus {
+        text-align: center;
+      }
+
+      .privacy {
+        padding: 95px 0;
+      }
+
+      .privacy-row {
+        grid-template-columns: 1fr;
+        gap: 9px;
       }
 
       .closing {
@@ -730,361 +1150,745 @@
 <body>
 
   <header>
-    <div class="container nav">
+    <div class="page nav">
+
       <a class="brand" href="#">
         <span class="brand-mark">A</span>
-        <span>Aurel</span>
+        Aurel
       </a>
 
-      <div class="nav-right">
+      <nav class="nav-links">
         <a href="#produkt">Produkt</a>
+        <a href="#entdecken">Entdecken</a>
         <a href="#privatsphaere">Privatsphäre</a>
+        <span class="development">In Entwicklung</span>
+      </nav>
 
-        <span class="status-pill">
-          <span class="status-dot"></span>
-          In Entwicklung
-        </span>
-      </div>
     </div>
   </header>
 
 
   <main>
 
+    <!-- HERO -->
+
     <section class="hero">
-      <div class="container hero-grid">
 
-        <div>
-          <p class="eyebrow">Personal Finance für iPhone</p>
+      <div class="page hero-inner">
 
-          <h1>
-            Finanzen, die sich erklären.
-          </h1>
+        <div class="hero-copy">
 
-          <p class="hero-copy">
-            Aurel bringt Konten, Ausgaben und Veränderungen zusammen –
-            damit du nicht nur siehst, was passiert ist, sondern verstehst,
-            was sich verändert hat.
+          <p class="hero-kicker">
+            Personal Finance für iPhone
           </p>
 
-          <div class="hero-meta">
-            <div class="availability">
-              <span class="availability-icon"></span>
-              Für iPhone in Entwicklung
-            </div>
+          <h1>
+            Dein Geld.<br>
+            Im Zusammenhang.
+          </h1>
 
-            <span class="hero-note">
-              Entwickelt in Köln
+          <p class="hero-description">
+            Aurel verbindet Konten, Ausgaben und Veränderungen –
+            damit aus Buchungen ein verständliches Bild deiner
+            Finanzen wird.
+          </p>
+
+          <div class="hero-actions">
+
+            <a class="primary-button" href="#entdecken">
+              Aurel entdecken
+            </a>
+
+            <span class="hero-status">
+              Für iPhone in Entwicklung · Köln
             </span>
+
           </div>
+
         </div>
 
 
-        <div class="device-wrap">
-          <div class="device-shadow"></div>
+        <div class="hero-product">
 
           <div class="phone">
-            <div class="phone-screen">
 
-              <div class="dynamic-island"></div>
+            <div class="screen">
 
-              <div class="app">
+              <div class="island"></div>
 
-                <div class="app-topbar">
-                  <div class="app-title">Heute</div>
-                  <div class="avatar">AM</div>
+              <div class="phone-content">
+
+                <div class="phone-top">
+                  <div class="phone-title">Heute</div>
+                  <div class="phone-avatar">AM</div>
                 </div>
 
-                <div class="demo-label">Beispieldaten</div>
+                <span class="demo">
+                  BEISPIELDATEN
+                </span>
 
-                <div class="balance-label">Gesamtvermögen</div>
-                <div class="balance">18.420 €</div>
-                <div class="balance-change">+ 620 € diesen Monat</div>
+                <div class="phone-label">
+                  Gesamtvermögen
+                </div>
 
-                <div class="chart-card">
-                  <div class="chart-heading">
-                    <strong>Verlauf</strong>
+                <div class="phone-balance">
+                  18.420 €
+                </div>
+
+                <div class="phone-change">
+                  +620 € diesen Monat
+                </div>
+
+
+                <div class="phone-chart">
+
+                  <div class="chart-head">
+                    Verlauf
                     <span>6 Monate</span>
                   </div>
 
                   <svg
-                    class="chart"
-                    viewBox="0 0 260 85"
+                    class="chart-svg"
+                    viewBox="0 0 260 88"
                     preserveAspectRatio="none"
                     aria-label="Beispielhafter Vermögensverlauf"
                   >
-                    <defs>
-                      <linearGradient id="fade" x1="0" y1="0" x2="0" y2="1">
-                        <stop
-                          offset="0%"
-                          stop-color="#75a9d6"
-                          stop-opacity="0.18"
-                        />
-                        <stop
-                          offset="100%"
-                          stop-color="#75a9d6"
-                          stop-opacity="0"
-                        />
-                      </linearGradient>
-                    </defs>
 
                     <path
-                      d="M0,68
-                         C18,64 25,57 42,59
-                         C58,61 64,50 82,49
-                         C101,48 105,55 122,45
-                         C141,34 151,41 169,31
-                         C188,22 196,29 214,18
-                         C230,9 242,13 260,7
-                         L260,85
-                         L0,85 Z"
-                      fill="url(#fade)"
-                    />
-
-                    <path
-                      d="M0,68
-                         C18,64 25,57 42,59
-                         C58,61 64,50 82,49
-                         C101,48 105,55 122,45
-                         C141,34 151,41 169,31
-                         C188,22 196,29 214,18
-                         C230,9 242,13 260,7"
+                      d="M0,70
+                         C20,65 27,56 45,59
+                         C63,62 68,49 87,50
+                         C105,51 111,43 129,42
+                         C147,40 154,29 174,30
+                         C194,31 199,20 218,17
+                         C236,14 245,13 260,8"
                       fill="none"
-                      stroke="#75a9d6"
-                      stroke-width="2.3"
+                      stroke="#78afe8"
+                      stroke-width="2.4"
                       stroke-linecap="round"
                     />
+
                   </svg>
+
                 </div>
 
-                <div class="stats-row">
-                  <div class="mini-card">
-                    <div class="mini-label">AUSGABEN AUGUST</div>
-                    <div class="mini-value">1.684 €</div>
+
+                <div class="phone-two">
+
+                  <div class="phone-stat">
+                    <small>AUSGABEN AUGUST</small>
+                    <strong>1.684 €</strong>
                   </div>
 
-                  <div class="mini-card">
-                    <div class="mini-label">SPARRATE</div>
-                    <div class="mini-value">22 %</div>
+                  <div class="phone-stat">
+                    <small>SPARRATE</small>
+                    <strong>22 %</strong>
                   </div>
+
                 </div>
 
-                <div class="insight">
-                  <div class="insight-head">
-                    <span class="spark"></span>
+
+                <div class="phone-insight">
+
+                  <div class="phone-insight-title">
                     Diese Woche
                   </div>
 
                   <p>
-                    Lebensmittel liegen diese Woche 18 % über deinem
-                    üblichen Wert. Der größte Unterschied kommt von REWE.
+                    Lebensmittel liegen 18 % über deinem üblichen Wert.
+                    Der größte Unterschied kommt von REWE.
                   </p>
+
                 </div>
 
               </div>
 
-              <div class="app-nav">
-                <div class="app-nav-item active">
-                  <span class="nav-symbol">⌂</span>
+
+              <div class="phone-nav">
+
+                <div class="active">
+                  <b>⌂</b>
                   Heute
                 </div>
 
-                <div class="app-nav-item">
-                  <span class="nav-symbol">≡</span>
+                <div>
+                  <b>≡</b>
                   Umsätze
                 </div>
 
-                <div class="app-nav-item">
-                  <span class="nav-symbol">◫</span>
+                <div>
+                  <b>▦</b>
                   Ausgaben
                 </div>
 
-                <div class="app-nav-item">
-                  <span class="nav-symbol">○</span>
+                <div>
+                  <b>○</b>
                   Aurel
                 </div>
+
               </div>
 
             </div>
+
           </div>
+
+
+          <div class="floating-transaction">
+
+            <div class="transaction-left">
+
+              <div class="merchant-icon">
+                RE
+              </div>
+
+              <div>
+                <div class="transaction-name">REWE</div>
+                <div class="transaction-meta">Heute, 18:42</div>
+              </div>
+
+            </div>
+
+            <div class="transaction-price">
+              −31,84 €
+            </div>
+
+          </div>
+
         </div>
 
       </div>
+
     </section>
 
 
-    <hr class="divider">
+    <!-- PRODUCT STATEMENT -->
 
+    <section class="statement" id="produkt">
 
-    <section class="intro" id="produkt">
-      <div class="container section-grid">
+      <div class="page statement-grid">
 
-        <div class="section-index">
-          01 — Überblick
+        <div class="small-label">
+          Warum Aurel
         </div>
 
         <div>
+
           <h2>
-            Ein Finanzbild, das nicht nach Arbeit aussieht.
+            Ein Kontostand sagt dir, was da ist. Nicht, was passiert.
           </h2>
 
-          <p class="section-copy">
-            Konten und Transaktionen sind nur der Anfang. Aurel ordnet deine
-            Finanzdaten so, dass Zusammenhänge sichtbar werden – ohne dass du
-            jeden Monat erst Tabellen, Kategorien und einzelne Buchungen
-            zusammensetzen musst.
+          <p class="large-copy">
+            Aurel soll nicht nur Transaktionen sortieren. Es soll sichtbar
+            machen, wie sich dein finanzieller Alltag verändert – bei
+            Händlern, Kategorien, Gewohnheiten und über längere Zeit.
           </p>
-        </div>
-
-      </div>
-    </section>
-
-
-    <section class="features">
-      <div class="container feature-list">
-
-        <div class="feature-row">
-          <div class="feature-title">
-            Ein ruhiger Überblick
-          </div>
-
-          <p class="feature-text">
-            Kontostände, Ausgaben und Entwicklungen werden auf das reduziert,
-            was gerade relevant ist. Zahlen zuerst, Dekoration danach.
-          </p>
-        </div>
-
-        <div class="feature-row">
-          <div class="feature-title">
-            Veränderungen erkennen
-          </div>
-
-          <p class="feature-text">
-            Aurel soll nicht nur einzelne Umsätze zeigen. Der interessantere
-            Teil ist, was sich über Wochen und Monate verändert – bei Händlern,
-            Kategorien und deinem eigenen Verhalten.
-          </p>
-        </div>
-
-        <div class="feature-row">
-          <div class="feature-title">
-            Fragen statt Menüs
-          </div>
-
-          <p class="feature-text">
-            Manche Antworten sollten keine Suche durch fünf Ansichten brauchen.
-            Aurel wird dafür entwickelt, Fragen zu deinen eigenen Finanzdaten
-            verständlich und nachvollziehbar zu beantworten.
-          </p>
-        </div>
-
-      </div>
-    </section>
-
-
-    <section class="privacy-section" id="privatsphaere">
-      <div class="container">
-
-        <div class="section-grid">
-
-          <div class="section-index">
-            02 — Privatsphäre
-          </div>
-
-          <div>
-            <h2>
-              Finanzdaten verdienen eine andere Architektur.
-            </h2>
-
-            <p class="section-copy">
-              Aurel wird von Anfang an mit Datenminimierung und lokaler
-              Verarbeitung als technische Grundsätze entwickelt – nicht als
-              Datenschutz-Text, der später über das Produkt gelegt wird.
-            </p>
-          </div>
-
-        </div>
-
-
-        <div class="privacy-points">
-
-          <div class="privacy-point">
-            <div class="privacy-number">01</div>
-
-            <strong>Local first</strong>
-
-            <p>
-              Wo Verarbeitung sinnvoll auf deinem Gerät stattfinden kann,
-              soll sie dort stattfinden.
-            </p>
-          </div>
-
-
-          <div class="privacy-point">
-            <div class="privacy-number">02</div>
-
-            <strong>Daten minimieren</strong>
-
-            <p>
-              Externe Verarbeitung soll nur die Informationen erhalten, die
-              für eine konkrete Funktion tatsächlich erforderlich sind.
-            </p>
-          </div>
-
-
-          <div class="privacy-point">
-            <div class="privacy-number">03</div>
-
-            <strong>Nachvollziehbare Zahlen</strong>
-
-            <p>
-              Finanzielle Berechnungen brauchen reproduzierbare Logik und
-              überprüfbare Daten – keine erfundenen Werte.
-            </p>
-          </div>
 
         </div>
 
       </div>
+
     </section>
 
+
+    <!-- PRINCIPLES -->
+
+    <section class="principles">
+
+      <div class="page">
+
+        <div class="principle">
+
+          <div class="principle-title">
+            Alles zusammen
+          </div>
+
+          <p>
+            Konten, Buchungen und Ausgaben werden zu einem gemeinsamen
+            Finanzbild statt zu einer Sammlung einzelner Ansichten.
+          </p>
+
+        </div>
+
+
+        <div class="principle">
+
+          <div class="principle-title">
+            Veränderungen zuerst
+          </div>
+
+          <p>
+            Nicht jede Zahl verdient Aufmerksamkeit. Aurel konzentriert
+            sich darauf, was anders geworden ist und warum es relevant
+            sein könnte.
+          </p>
+
+        </div>
+
+
+        <div class="principle">
+
+          <div class="principle-title">
+            Fragen stellen
+          </div>
+
+          <p>
+            Finanzdaten sollten nicht voraussetzen, dass du weißt, in
+            welchem Menü eine Antwort versteckt ist.
+          </p>
+
+        </div>
+
+      </div>
+
+    </section>
+
+
+    <!-- EXPERIMENTAL AUREL FEATURES -->
+
+    <section class="playground" id="entdecken">
+
+      <div class="page">
+
+        <div class="playground-head">
+
+          <h2>
+            Deine Finanzen haben mehr zu erzählen.
+          </h2>
+
+          <p class="playground-note">
+            Zwei Beispiele dafür, wie Aurel Finanzdaten anders nutzbar
+            machen könnte. Alle Werte auf dieser Seite sind Beispieldaten.
+          </p>
+
+        </div>
+
+
+        <div class="experiments">
+
+          <!-- RANDOM FACT -->
+
+          <article class="experiment">
+
+            <div class="experiment-label">
+              Überrasch mich
+              <span class="demo-tag">Beispieldaten</span>
+            </div>
+
+            <div class="random-content">
+
+              <div
+                class="random-number"
+                id="random-number"
+              >
+                19 Tage
+              </div>
+
+              <p
+                class="random-copy"
+                id="random-copy"
+              >
+                So lange ist dein letzter Amazon-Einkauf her.
+              </p>
+
+            </div>
+
+            <button
+              class="shuffle"
+              id="shuffle-button"
+              type="button"
+            >
+              Noch etwas zeigen
+            </button>
+
+          </article>
+
+
+          <!-- MERCHANT COMPARISON -->
+
+          <article class="experiment">
+
+            <div class="experiment-label">
+              Händler vergleichen
+              <span class="demo-tag">Beispieldaten</span>
+            </div>
+
+
+            <div class="compare-controls">
+
+              <select
+                id="merchant-a"
+                aria-label="Erster Händler"
+              >
+                <option value="lidl">Lidl</option>
+                <option value="rewe">REWE</option>
+                <option value="aldi">Aldi</option>
+                <option value="edeka">EDEKA</option>
+              </select>
+
+              <span class="versus">
+                vs.
+              </span>
+
+              <select
+                id="merchant-b"
+                aria-label="Zweiter Händler"
+              >
+                <option value="rewe">REWE</option>
+                <option value="lidl">Lidl</option>
+                <option value="aldi">Aldi</option>
+                <option value="edeka">EDEKA</option>
+              </select>
+
+            </div>
+
+
+            <div class="comparison">
+
+              <div class="merchant-result">
+
+                <div
+                  class="merchant-name"
+                  id="merchant-a-name"
+                >
+                  Lidl
+                </div>
+
+                <div
+                  class="merchant-average"
+                  id="merchant-a-average"
+                >
+                  18,40 €
+                  <span>Ø pro Einkauf</span>
+                </div>
+
+                <div
+                  class="merchant-detail"
+                  id="merchant-a-detail"
+                >
+                  12 Einkäufe · 220,80 €
+                </div>
+
+              </div>
+
+
+              <div class="merchant-result">
+
+                <div
+                  class="merchant-name"
+                  id="merchant-b-name"
+                >
+                  REWE
+                </div>
+
+                <div
+                  class="merchant-average"
+                  id="merchant-b-average"
+                >
+                  27,10 €
+                  <span>Ø pro Einkauf</span>
+                </div>
+
+                <div
+                  class="merchant-detail"
+                  id="merchant-b-detail"
+                >
+                  9 Einkäufe · 243,90 €
+                </div>
+
+              </div>
+
+            </div>
+
+
+            <div class="compare-insight">
+
+              <strong>
+                Was fällt auf?
+              </strong>
+
+              <p id="comparison-copy">
+                Bei Lidl gibst du pro Einkauf durchschnittlich
+                8,70 € weniger aus als bei REWE.
+              </p>
+
+            </div>
+
+          </article>
+
+        </div>
+
+      </div>
+
+    </section>
+
+
+    <!-- PRIVACY -->
+
+    <section
+      class="privacy"
+      id="privatsphaere"
+    >
+
+      <div class="page privacy-grid">
+
+        <div class="small-label">
+          Privatsphäre
+        </div>
+
+
+        <div class="privacy-copy">
+
+          <h2>
+            Finanzdaten brauchen eine andere Architektur.
+          </h2>
+
+          <p>
+            Datenschutz soll bei Aurel keine Einstellung sein, die später
+            ergänzt wird. Datenminimierung und lokale Verarbeitung gehören
+            zur technischen Grundlage des Produkts.
+          </p>
+
+
+          <div class="privacy-list">
+
+            <div class="privacy-row">
+
+              <strong>
+                Local first
+              </strong>
+
+              <p>
+                Verarbeitung soll dort auf deinem Gerät stattfinden,
+                wo sie sinnvoll und technisch möglich ist.
+              </p>
+
+            </div>
+
+
+            <div class="privacy-row">
+
+              <strong>
+                Weniger weitergeben
+              </strong>
+
+              <p>
+                Externe Systeme sollen nur die Informationen erhalten,
+                die eine konkrete Funktion tatsächlich benötigt.
+              </p>
+
+            </div>
+
+
+            <div class="privacy-row">
+
+              <strong>
+                Zahlen bleiben Zahlen
+              </strong>
+
+              <p>
+                Finanzielle Berechnungen brauchen deterministische,
+                überprüfbare Logik – keine erfundenen Werte.
+              </p>
+
+            </div>
+
+          </div>
+
+        </div>
+
+      </div>
+
+    </section>
+
+
+    <!-- CLOSING -->
 
     <section class="closing">
-      <div class="container">
 
-        <div class="closing-inner">
+      <div class="page closing-inner">
 
-          <p class="eyebrow">Aurel Finance</p>
+        <div class="closing-label">
+          Aurel Finance
+        </div>
 
-          <h2>
-            Weniger Finanz-Dashboard. Mehr finanzieller Durchblick.
-          </h2>
+        <h2>
+          Weniger suchen.<br>
+          Mehr verstehen.
+        </h2>
 
-          <div class="closing-status">
-            <span class="status-dot"></span>
-            Derzeit in Entwicklung für iPhone
-          </div>
-
+        <div class="closing-status">
+          <span class="closing-dot"></span>
+          Derzeit in Entwicklung für iPhone
         </div>
 
       </div>
+
     </section>
 
   </main>
 
 
   <footer>
-    <div class="container footer-inner">
+
+    <div class="page footer-inner">
+
       <div>
-        <span class="footer-brand">Aurel</span>
-        &nbsp;·&nbsp; Köln, Deutschland
+        <strong>Aurel</strong>
+        · Köln, Deutschland
       </div>
 
       <div>
         © 2026 Aurel Finance · In Entwicklung
       </div>
+
     </div>
+
   </footer>
+
+
+  <script>
+    const facts = [
+      {
+        number: "19 Tage",
+        copy: "So lange ist dein letzter Amazon-Einkauf her."
+      },
+      {
+        number: "Dienstag",
+        copy: "Ist bisher dein teuerster Wochentag."
+      },
+      {
+        number: "46 €",
+        copy: "Weniger für Lieferdienste als im gleichen Zeitraum letzten Monat."
+      },
+      {
+        number: "4 Tage",
+        copy: "Diesen Monat hattest du bisher vier Tage ganz ohne Ausgaben."
+      },
+      {
+        number: "3,18 €",
+        copy: "War dein kleinster REWE-Einkauf in den vergangenen 90 Tagen."
+      },
+      {
+        number: "11",
+        copy: "Verschiedene Supermärkte tauchen in deinen letzten 90 Tagen auf."
+      },
+      {
+        number: "08:14",
+        copy: "Um diese Uhrzeit gibst du an Arbeitstagen besonders häufig Geld aus."
+      },
+      {
+        number: "17 Tage",
+        copy: "So lange war deine längste Zeit ohne Lieferdienst."
+      }
+    ];
+
+    let currentFact = 0;
+
+    const randomNumber = document.getElementById("random-number");
+    const randomCopy = document.getElementById("random-copy");
+    const shuffleButton = document.getElementById("shuffle-button");
+
+    shuffleButton.addEventListener("click", () => {
+      let nextFact = currentFact;
+
+      while (nextFact === currentFact) {
+        nextFact = Math.floor(Math.random() * facts.length);
+      }
+
+      currentFact = nextFact;
+
+      randomNumber.textContent = facts[currentFact].number;
+      randomCopy.textContent = facts[currentFact].copy;
+    });
+
+
+    const merchants = {
+      lidl: {
+        name: "Lidl",
+        average: 18.40,
+        visits: 12,
+        total: 220.80
+      },
+      rewe: {
+        name: "REWE",
+        average: 27.10,
+        visits: 9,
+        total: 243.90
+      },
+      aldi: {
+        name: "Aldi",
+        average: 20.65,
+        visits: 8,
+        total: 165.20
+      },
+      edeka: {
+        name: "EDEKA",
+        average: 29.30,
+        visits: 6,
+        total: 175.80
+      }
+    };
+
+    const merchantASelect = document.getElementById("merchant-a");
+    const merchantBSelect = document.getElementById("merchant-b");
+
+    function euro(value) {
+      return value.toLocaleString("de-DE", {
+        minimumFractionDigits: 2,
+        maximumFractionDigits: 2
+      }) + " €";
+    }
+
+    function updateComparison() {
+      const a = merchants[merchantASelect.value];
+      const b = merchants[merchantBSelect.value];
+
+      document.getElementById("merchant-a-name").textContent = a.name;
+      document.getElementById("merchant-b-name").textContent = b.name;
+
+      document.getElementById("merchant-a-average").innerHTML =
+        euro(a.average) + "<span>Ø pro Einkauf</span>";
+
+      document.getElementById("merchant-b-average").innerHTML =
+        euro(b.average) + "<span>Ø pro Einkauf</span>";
+
+      document.getElementById("merchant-a-detail").textContent =
+        a.visits + " Einkäufe · " + euro(a.total);
+
+      document.getElementById("merchant-b-detail").textContent =
+        b.visits + " Einkäufe · " + euro(b.total);
+
+      const difference = Math.abs(a.average - b.average);
+
+      let copy;
+
+      if (merchantASelect.value === merchantBSelect.value) {
+        copy =
+          "Wähle zwei unterschiedliche Händler, um sie miteinander zu vergleichen.";
+      } else if (a.average < b.average) {
+        copy =
+          "Bei " + a.name +
+          " gibst du pro Einkauf durchschnittlich " +
+          euro(difference) +
+          " weniger aus als bei " +
+          b.name + ".";
+      } else {
+        copy =
+          "Bei " + b.name +
+          " gibst du pro Einkauf durchschnittlich " +
+          euro(difference) +
+          " weniger aus als bei " +
+          a.name + ".";
+      }
+
+      document.getElementById("comparison-copy").textContent = copy;
+    }
+
+    merchantASelect.addEventListener("change", updateComparison);
+    merchantBSelect.addEventListener("change", updateComparison);
+
+    updateComparison();
+  </script>
 
 </body>
 </html>
