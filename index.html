@@ -2,11 +2,7 @@
 <html lang="de">
 <head>
   <meta charset="UTF-8">
-
-  <meta
-    name="viewport"
-    content="width=device-width, initial-scale=1.0"
-  >
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
   <title>Aurel — Verstehe dein Geld</title>
 
@@ -15,99 +11,53 @@
     content="Aurel verbindet deine Finanzen zu einem klaren Bild und zeigt dir, was sich wirklich verändert."
   >
 
-  <meta name="theme-color" content="#edf4fc">
+  <meta name="theme-color" content="#eaf3ff">
 
   <!-- Open Graph -->
-  <meta
-    property="og:title"
-    content="Aurel — Verstehe dein Geld"
-  >
-
+  <meta property="og:title" content="Aurel — Verstehe dein Geld">
   <meta
     property="og:description"
     content="Nicht nur sehen, was passiert ist. Verstehen, was sich verändert."
   >
-
-  <meta
-    property="og:type"
-    content="website"
-  >
-
-  <meta
-    property="og:url"
-    content="https://aurelfinance.de/"
-  >
-
-  <meta
-    property="og:image"
-    content="https://aurelfinance.de/og-aurel.png"
-  >
-
-  <meta
-    property="og:image:width"
-    content="1731"
-  >
-
-  <meta
-    property="og:image:height"
-    content="909"
-  >
-
-  <meta
-    property="og:image:alt"
-    content="Aurel Finance – Verstehen, was sich verändert."
-  >
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://aurelfinance.de/">
+  <meta property="og:image" content="https://aurelfinance.de/og-aurel.png">
+  <meta property="og:image:width" content="1731">
+  <meta property="og:image:height" content="909">
 
   <!-- Twitter / X -->
-  <meta
-    name="twitter:card"
-    content="summary_large_image"
-  >
-
-  <meta
-    name="twitter:title"
-    content="Aurel — Verstehe dein Geld"
-  >
-
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Aurel — Verstehe dein Geld">
   <meta
     name="twitter:description"
     content="Nicht nur sehen, was passiert ist. Verstehen, was sich verändert."
   >
+  <meta name="twitter:image" content="https://aurelfinance.de/og-aurel.png">
 
-  <meta
-    name="twitter:image"
-    content="https://aurelfinance.de/og-aurel.png"
-  >
+  <link rel="canonical" href="https://aurelfinance.de/">
 
-  <link
-    rel="canonical"
-    href="https://aurelfinance.de/"
-  >
-
-  <!-- Simple Aurel favicon -->
   <link
     rel="icon"
-    href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='16' fill='%230b1630'/%3E%3Ctext x='32' y='42' text-anchor='middle' font-size='32' font-family='Arial' font-weight='700' fill='white'%3EA%3C/text%3E%3C/svg%3E"
+    href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='16' fill='%230b1836'/%3E%3Ctext x='32' y='42' text-anchor='middle' font-size='32' font-family='Arial' font-weight='700' fill='white'%3EA%3C/text%3E%3C/svg%3E"
   >
 
   <style>
     :root {
-      --ink: #0d1320;
-      --navy: #14274a;
+      --navy: #0b1836;
+      --ink: #11151b;
+      --text: #11151b;
+      --secondary: #56616f;
+      --muted: #87909b;
 
-      --text: #101419;
-      --text-soft: #55606b;
-      --muted: #8a939c;
+      --blue: #2469df;
+      --blue-dark: #1955b7;
+      --blue-soft: #eaf3ff;
+      --blue-pale: #f5f9ff;
 
-      --blue: #2567d7;
-      --blue-deep: #174f9f;
-      --blue-soft: #e8f1fc;
-      --blue-pale: #edf4fc;
-
-      --green: #168553;
+      --green: #138a50;
 
       --white: #ffffff;
-      --surface: #f7f8fa;
+      --offwhite: #f8f9fa;
       --line: #e1e5e9;
 
       --max: 1180px;
@@ -156,22 +106,17 @@
     }
 
 
-    /* ==========================================================
+    /* =========================================================
        HEADER
-    ========================================================== */
+    ========================================================= */
 
     header {
-      position: relative;
-      z-index: 20;
-
-      background: #edf4fc;
-
-      border-bottom:
-        1px solid rgba(13, 19, 32, 0.06);
+      background: #eaf3ff;
+      border-bottom: 1px solid rgba(11, 24, 54, 0.07);
     }
 
     .nav {
-      height: 72px;
+      height: 74px;
 
       display: flex;
       align-items: center;
@@ -197,7 +142,7 @@
       display: grid;
       place-items: center;
 
-      background: #0b1630;
+      background: var(--navy);
       color: white;
 
       border-radius: 9px;
@@ -209,76 +154,70 @@
     .nav-links {
       display: flex;
       align-items: center;
-      gap: 28px;
+      gap: 30px;
+
+      color: #425064;
 
       font-size: 13px;
       font-weight: 600;
     }
 
-    .nav-links > a:not(.nav-cta) {
-      color: var(--text-soft);
-    }
-
-    .nav-links > a:not(.nav-cta):hover {
-      color: var(--ink);
+    .nav-links > a:hover {
+      color: var(--navy);
     }
 
     .nav-cta {
       padding: 10px 15px;
 
-      background: var(--ink);
-      color: white;
+      background: var(--navy);
+      color: white !important;
 
       border-radius: 999px;
-
-      font-size: 12px;
     }
 
 
-    /* ==========================================================
+    /* =========================================================
        HERO
-    ========================================================== */
+    ========================================================= */
 
     .hero {
+      position: relative;
       overflow: hidden;
 
       background:
         radial-gradient(
-          1000px 480px at 72% -80px,
-          rgba(94, 148, 226, 0.25) 0%,
-          rgba(94, 148, 226, 0.11) 45%,
-          rgba(94, 148, 226, 0) 76%
+          900px 520px at 89% 2%,
+          rgba(71, 138, 238, 0.28),
+          rgba(71, 138, 238, 0.08) 48%,
+          rgba(71, 138, 238, 0) 75%
         ),
         linear-gradient(
           180deg,
-          #edf4fc 0%,
-          #f4f8fd 52%,
+          #eaf3ff 0%,
+          #f3f8ff 58%,
           #ffffff 100%
         );
     }
 
     .hero-grid {
-      min-height: 700px;
+      min-height: 690px;
 
       display: grid;
-      grid-template-columns:
-        minmax(0, 0.92fr)
-        minmax(500px, 1.08fr);
-
-      gap: 70px;
+      grid-template-columns: minmax(0, 0.88fr) minmax(520px, 1.12fr);
+      gap: 62px;
       align-items: center;
 
-      padding: 50px 0 58px;
+      padding: 45px 0 38px;
     }
 
-    .hero-label {
+    .eyebrow {
       margin: 0 0 19px;
 
-      color: var(--blue);
+      color: var(--blue-dark);
 
-      font-size: 12px;
+      font-size: 11px;
       font-weight: 720;
-      letter-spacing: 0.1em;
+      letter-spacing: 0.11em;
       text-transform: uppercase;
     }
 
@@ -286,25 +225,24 @@
       max-width: 670px;
       margin: 0;
 
-      color: var(--ink);
+      color: var(--navy);
 
-      font-size:
-        clamp(60px, 5.8vw, 88px);
+      font-size: clamp(58px, 5.7vw, 86px);
+      line-height: 0.96;
 
-      line-height: 0.95;
-      letter-spacing: -0.066em;
+      letter-spacing: -0.065em;
       font-weight: 620;
     }
 
     .hero-copy {
-      max-width: 545px;
+      max-width: 520px;
 
-      margin: 27px 0 0;
+      margin: 26px 0 0;
 
-      color: var(--text-soft);
+      color: #4e5b69;
 
       font-size: 18px;
-      line-height: 1.52;
+      line-height: 1.53;
       letter-spacing: -0.018em;
     }
 
@@ -324,10 +262,10 @@
       min-height: 46px;
       padding: 0 19px;
 
-      background: var(--ink);
+      background: var(--navy);
       color: white;
 
-      border-radius: 9px;
+      border-radius: 8px;
 
       font-size: 13px;
       font-weight: 650;
@@ -337,15 +275,15 @@
       opacity: 0.9;
     }
 
-    .development-note {
+    .development {
       display: flex;
       align-items: center;
       gap: 8px;
 
-      color: var(--text-soft);
+      color: #566272;
 
       font-size: 12px;
-      font-weight: 580;
+      font-weight: 590;
     }
 
     .development-dot {
@@ -357,190 +295,163 @@
       border-radius: 50%;
     }
 
-    .hero-micro {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 8px 20px;
 
-      margin-top: 33px;
-      padding-top: 20px;
+    /*
+      Important:
+      This is the new dedicated hero artwork.
+      No card/frame around it. It sits directly in the composition,
+      more like product photography on a banking/fintech site.
+    */
 
-      border-top:
-        1px solid rgba(13, 19, 32, 0.11);
-
-      color: #65717c;
-
-      font-size: 11px;
-      font-weight: 580;
-    }
-
-
-    /* ==========================================================
-       HERO IMAGE
-       Uses the OG artwork already uploaded to the website.
-       We crop its right side so the embedded headline is hidden.
-    ========================================================== */
-
-    .hero-visual {
+    .hero-art {
       position: relative;
 
-      height: 585px;
+      min-height: 610px;
 
-      overflow: hidden;
-
-      background:
-        linear-gradient(
-          135deg,
-          #eef5fd 0%,
-          #dceafd 50%,
-          #87b4ef 100%
-        );
-
-      border:
-        1px solid rgba(27, 77, 145, 0.09);
-
-      border-radius: 34px;
-
-      box-shadow:
-        0 32px 70px rgba(45, 84, 130, 0.12);
+      display: flex;
+      align-items: center;
+      justify-content: center;
     }
 
-    .hero-visual img {
-      position: absolute;
-
-      top: 0;
-      right: 0;
-
-      width: auto;
-      height: 100%;
-
-      max-width: none;
-
-      display: block;
-    }
-
-    .hero-visual::before {
+    .hero-art::before {
       content: "";
 
       position: absolute;
+
+      width: 520px;
+      height: 520px;
+
+      right: -55px;
+      top: 42px;
+
+      background:
+        radial-gradient(
+          circle,
+          rgba(57, 124, 226, 0.24),
+          rgba(57, 124, 226, 0.08) 48%,
+          rgba(57, 124, 226, 0) 72%
+        );
+
+      filter: blur(8px);
+    }
+
+    .hero-art img {
+      position: relative;
       z-index: 2;
 
-      inset: 0;
+      width: 112%;
+      max-width: 710px;
+      height: auto;
 
-      pointer-events: none;
+      display: block;
 
-      background:
-        linear-gradient(
-          90deg,
-          rgba(237, 244, 252, 0.38) 0%,
-          rgba(237, 244, 252, 0.08) 16%,
-          rgba(237, 244, 252, 0) 34%
-        );
-    }
-
-    .visual-badge {
-      position: absolute;
-      z-index: 4;
-
-      top: 23px;
-      left: 23px;
-
-      display: inline-flex;
-      align-items: center;
-      gap: 7px;
-
-      padding: 8px 10px;
-
-      background:
-        rgba(255,255,255,0.86);
-
-      border:
-        1px solid rgba(13,19,32,0.08);
-
-      border-radius: 999px;
-
-      box-shadow:
-        0 5px 15px rgba(33, 60, 90, 0.07);
-
-      backdrop-filter: blur(10px);
-
-      color: var(--navy);
-
-      font-size: 10px;
-      font-weight: 650;
-    }
-
-    .visual-badge-dot {
-      width: 6px;
-      height: 6px;
-
-      background: var(--blue);
-
-      border-radius: 50%;
+      transform: translateX(12px);
     }
 
 
-    /* ==========================================================
-       ASK AUREL
-    ========================================================== */
+    /* =========================================================
+       PRODUCT STATEMENT
+    ========================================================= */
 
-    .ask-section {
-      padding: 96px 0 105px;
+    .statement {
+      padding: 86px 0 80px;
 
-      background: var(--surface);
+      background: white;
+
+      border-bottom: 1px solid var(--line);
     }
 
-    .ask-grid {
+    .statement-grid {
       display: grid;
-      grid-template-columns:
-        0.88fr
-        1.12fr;
-
+      grid-template-columns: 260px 1fr;
       gap: 78px;
-      align-items: start;
     }
 
-    .section-kicker {
-      margin-bottom: 16px;
+    .section-label {
+      padding-top: 8px;
 
-      color: var(--blue);
+      color: var(--muted);
 
-      font-size: 11px;
-      font-weight: 720;
-      letter-spacing: 0.09em;
-      text-transform: uppercase;
+      font-size: 12px;
+      font-weight: 620;
     }
 
     h2 {
-      max-width: 640px;
+      max-width: 730px;
       margin: 0;
 
-      color: var(--ink);
+      color: var(--navy);
 
-      font-size:
-        clamp(42px, 4.2vw, 61px);
+      font-size: clamp(40px, 4.1vw, 58px);
+      line-height: 1.02;
 
-      line-height: 1.01;
       letter-spacing: -0.055em;
       font-weight: 610;
     }
 
-    .section-copy {
-      max-width: 455px;
+    .statement-copy {
+      max-width: 690px;
 
       margin: 22px 0 0;
 
-      color: var(--text-soft);
+      color: var(--secondary);
 
-      font-size: 15px;
-      line-height: 1.57;
+      font-size: 16px;
+      line-height: 1.6;
     }
 
-    .question-list {
-      margin-top: 29px;
 
-      border-top:
-        1px solid #d8dde1;
+    /* =========================================================
+       ASK AUREL
+    ========================================================= */
+
+    .ask-section {
+      padding: 90px 0;
+
+      background: #f8f9fa;
+    }
+
+    .ask-header {
+      display: grid;
+      grid-template-columns: 1fr 420px;
+      gap: 60px;
+      align-items: end;
+
+      margin-bottom: 48px;
+    }
+
+    .section-kicker {
+      margin-bottom: 14px;
+
+      color: var(--blue);
+
+      font-size: 10px;
+      font-weight: 720;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+    }
+
+    .ask-header p {
+      margin: 0;
+
+      color: var(--secondary);
+
+      font-size: 14px;
+      line-height: 1.55;
+    }
+
+    .ask-interface {
+      display: grid;
+      grid-template-columns: 0.8fr 1.2fr;
+
+      border-top: 1px solid #bcc3ca;
+      border-bottom: 1px solid #bcc3ca;
+    }
+
+    .questions {
+      padding-right: 42px;
+
+      border-right: 1px solid var(--line);
     }
 
     .question {
@@ -549,13 +460,12 @@
       display: flex;
       align-items: center;
       justify-content: space-between;
-      gap: 22px;
+      gap: 18px;
 
-      padding: 17px 0;
+      padding: 22px 0;
 
       border: 0;
-      border-bottom:
-        1px solid #d8dde1;
+      border-bottom: 1px solid var(--line);
 
       background: transparent;
       color: var(--ink);
@@ -565,8 +475,12 @@
       text-align: left;
 
       font-size: 14px;
-      line-height: 1.4;
+      line-height: 1.42;
       font-weight: 590;
+    }
+
+    .question:last-child {
+      border-bottom: 0;
     }
 
     .question:hover,
@@ -574,62 +488,36 @@
       color: var(--blue);
     }
 
-    .question-arrow {
-      flex: 0 0 auto;
-
+    .question span {
       color: var(--muted);
 
       font-size: 18px;
     }
 
+    .answer {
+      min-height: 385px;
 
-    /* answer */
-
-    .answer-panel {
-      min-height: 430px;
-
-      padding: 33px;
-
-      background: white;
-
-      border:
-        1px solid #dce1e5;
-
-      border-radius: 23px;
-
-      box-shadow:
-        0 16px 42px rgba(37, 62, 89, 0.06);
+      padding: 34px 0 34px 46px;
     }
 
-    .answer-top {
+    .answer-meta {
       display: flex;
-      align-items: center;
       justify-content: space-between;
 
       color: var(--muted);
 
       font-size: 9px;
       font-weight: 680;
-      letter-spacing: 0.07em;
+      letter-spacing: 0.08em;
       text-transform: uppercase;
     }
 
-    .answer-aurel {
-      display: flex;
-      align-items: center;
-      gap: 7px;
-
+    .answer-meta strong {
       color: var(--blue);
     }
 
-    .answer-aurel::before {
-      content: "✦";
-
-      font-size: 12px;
-    }
-
     .answer-number {
-      margin-top: 56px;
+      margin-top: 55px;
 
       color: var(--navy);
 
@@ -641,9 +529,9 @@
     }
 
     .answer-title {
-      max-width: 500px;
+      max-width: 540px;
 
-      margin-top: 19px;
+      margin-top: 20px;
 
       color: var(--ink);
 
@@ -654,83 +542,70 @@
     }
 
     .answer-copy {
-      max-width: 510px;
+      max-width: 550px;
 
-      margin-top: 15px;
+      margin-top: 14px;
 
-      color: var(--text-soft);
+      color: var(--secondary);
 
       font-size: 14px;
-      line-height: 1.58;
+      line-height: 1.6;
     }
 
     .answer-source {
-      margin-top: 36px;
-      padding-top: 15px;
+      max-width: 550px;
 
-      border-top:
-        1px solid var(--line);
+      margin-top: 33px;
+      padding-top: 14px;
+
+      border-top: 1px solid var(--line);
 
       color: var(--muted);
 
       font-size: 10px;
-      line-height: 1.5;
     }
 
 
-    /* ==========================================================
-       RANDOM FACT
-    ========================================================== */
+    /* =========================================================
+       RANDOM
+    ========================================================= */
 
     .random-section {
-      padding: 88px 0;
+      padding: 90px 0;
 
       background: white;
     }
 
-    .random-shell {
+    .random-grid {
       display: grid;
-      grid-template-columns:
-        0.9fr
-        1.1fr;
-
-      overflow: hidden;
-
-      border:
-        1px solid #d9e1eb;
-
-      border-radius: 26px;
+      grid-template-columns: 0.8fr 1.2fr;
+      gap: 80px;
+      align-items: center;
     }
 
-    .random-intro {
-      min-height: 365px;
-
-      padding: 45px;
-
-      display: flex;
-      flex-direction: column;
-      justify-content: space-between;
-
-      background: white;
+    .random-copy h2 {
+      max-width: 500px;
     }
 
-    .random-intro h2 {
-      max-width: 440px;
+    .random-copy p {
+      max-width: 430px;
 
-      font-size:
-        clamp(38px, 3.8vw, 54px);
+      margin: 20px 0 0;
+
+      color: var(--secondary);
+
+      font-size: 15px;
+      line-height: 1.58;
     }
 
     .random-button {
-      align-self: flex-start;
-
-      margin-top: 35px;
-      padding: 12px 16px;
+      margin-top: 28px;
+      padding: 11px 15px;
 
       border: 0;
-      border-radius: 8px;
+      border-radius: 7px;
 
-      background: var(--ink);
+      background: var(--navy);
       color: white;
 
       cursor: pointer;
@@ -739,50 +614,40 @@
       font-weight: 650;
     }
 
-    .random-button:hover {
-      opacity: 0.9;
-    }
-
     .random-result {
-      min-height: 365px;
-
-      padding: 45px;
+      min-height: 305px;
 
       display: flex;
       flex-direction: column;
       justify-content: center;
 
+      padding: 42px 46px;
+
       background:
-        radial-gradient(
-          500px 350px at 95% 10%,
-          rgba(72, 127, 215, 0.24),
-          rgba(72, 127, 215, 0) 70%
-        ),
         linear-gradient(
           135deg,
           #edf5ff,
-          #dbeafd
+          #d8e9ff
         );
 
-      border-left:
-        1px solid #d6e0ec;
+      border-left: 3px solid var(--blue);
     }
 
     .random-meta {
-      color: var(--blue-deep);
+      color: var(--blue-dark);
 
       font-size: 9px;
       font-weight: 700;
-      letter-spacing: 0.09em;
+      letter-spacing: 0.1em;
       text-transform: uppercase;
     }
 
     .random-value {
-      margin-top: 42px;
+      margin-top: 34px;
 
       color: var(--navy);
 
-      font-size: 73px;
+      font-size: 69px;
       line-height: 0.95;
 
       font-weight: 630;
@@ -790,134 +655,113 @@
     }
 
     .random-text {
-      max-width: 450px;
+      max-width: 480px;
 
-      margin-top: 18px;
+      margin-top: 17px;
 
-      color: #3f4e5c;
+      color: #3e4c5b;
 
       font-size: 18px;
-      line-height: 1.45;
-      letter-spacing: -0.018em;
+      line-height: 1.46;
     }
 
 
-    /* ==========================================================
+    /* =========================================================
        PRIVACY
-    ========================================================== */
+    ========================================================= */
 
     .privacy {
-      padding: 82px 0;
+      padding: 78px 0;
 
-      background: #f8f9fa;
-
-      border-top:
-        1px solid var(--line);
+      background: var(--navy);
+      color: white;
     }
 
     .privacy-grid {
       display: grid;
-      grid-template-columns:
-        0.7fr
-        1.3fr;
-
+      grid-template-columns: 0.65fr 1.35fr;
       gap: 75px;
     }
 
-    .privacy-label {
-      color: var(--muted);
-
-      font-size: 12px;
-      font-weight: 650;
+    .privacy .section-label {
+      color: #8ea0ba;
     }
 
     .privacy h2 {
-      max-width: 680px;
+      color: white;
 
-      font-size:
-        clamp(38px, 4vw, 55px);
+      max-width: 680px;
     }
 
     .privacy-copy {
-      max-width: 635px;
+      max-width: 640px;
 
       margin: 20px 0 0;
 
-      color: var(--text-soft);
+      color: #b6c0ce;
 
       font-size: 15px;
-      line-height: 1.56;
+      line-height: 1.58;
     }
 
     .privacy-points {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 12px 28px;
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 25px;
 
-      margin-top: 31px;
-      padding-top: 20px;
+      margin-top: 34px;
+      padding-top: 22px;
 
-      border-top:
-        1px solid var(--line);
+      border-top: 1px solid rgba(255,255,255,0.16);
+    }
 
-      color: #56616b;
+    .privacy-point strong {
+      display: block;
+
+      color: white;
 
       font-size: 12px;
-      font-weight: 590;
+      font-weight: 640;
     }
 
-    .privacy-point {
-      display: flex;
-      align-items: center;
-      gap: 7px;
-    }
+    .privacy-point span {
+      display: block;
 
-    .privacy-point::before {
-      content: "";
+      margin-top: 6px;
 
-      width: 6px;
-      height: 6px;
+      color: #98a8bc;
 
-      background: var(--blue);
-
-      border-radius: 50%;
+      font-size: 11px;
+      line-height: 1.5;
     }
 
 
-    /* ==========================================================
+    /* =========================================================
        CTA
-    ========================================================== */
+    ========================================================= */
 
     .final-cta {
-      padding: 88px 0 92px;
-
-      background:
-        linear-gradient(
-          180deg,
-          #ffffff,
-          #f6f9fd
-        );
+      padding: 78px 0;
 
       text-align: center;
+
+      background: white;
     }
 
     .final-cta h2 {
-      max-width: 660px;
+      max-width: 650px;
 
       margin: 0 auto;
-
-      font-size:
-        clamp(40px, 4.2vw, 59px);
     }
 
     .final-cta p {
-      max-width: 500px;
+      max-width: 480px;
 
-      margin: 20px auto 0;
+      margin: 19px auto 0;
 
-      color: var(--text-soft);
+      color: var(--secondary);
 
-      font-size: 15px;
+      font-size: 14px;
       line-height: 1.55;
     }
 
@@ -926,39 +770,38 @@
       align-items: center;
       justify-content: center;
 
-      min-height: 46px;
+      min-height: 45px;
 
-      margin-top: 27px;
+      margin-top: 26px;
       padding: 0 18px;
 
-      background: var(--ink);
+      background: var(--navy);
       color: white;
 
-      border-radius: 9px;
+      border-radius: 8px;
 
       font-size: 13px;
       font-weight: 650;
     }
 
 
-    /* ==========================================================
+    /* =========================================================
        FOOTER
-    ========================================================== */
+    ========================================================= */
 
     footer {
-      padding: 25px 0 34px;
+      padding: 24px 0 33px;
+
+      border-top: 1px solid var(--line);
 
       background: white;
-
-      border-top:
-        1px solid var(--line);
     }
 
     .footer {
       display: flex;
       align-items: center;
       justify-content: space-between;
-      gap: 30px;
+      gap: 28px;
 
       color: var(--muted);
 
@@ -975,13 +818,13 @@
     }
 
     .footer-links a:hover {
-      color: var(--ink);
+      color: var(--navy);
     }
 
 
-    /* ==========================================================
+    /* =========================================================
        TABLET
-    ========================================================== */
+    ========================================================= */
 
     @media (max-width: 950px) {
 
@@ -990,46 +833,62 @@
 
         grid-template-columns: 1fr;
 
-        gap: 48px;
+        gap: 30px;
 
         padding-top: 65px;
       }
 
-      .hero-visual {
-        width: min(100%, 620px);
-        height: 580px;
+      .hero-art {
+        min-height: 570px;
 
-        margin: 0 auto;
+        margin-top: 10px;
       }
 
-      .ask-grid {
-        grid-template-columns: 1fr;
+      .hero-art img {
+        width: min(100%, 700px);
 
-        gap: 45px;
+        transform: none;
       }
 
-      .random-shell {
-        grid-template-columns: 1fr;
-      }
-
-      .random-result {
-        border-left: 0;
-
-        border-top:
-          1px solid #d6e0ec;
-      }
-
+      .statement-grid,
       .privacy-grid {
         grid-template-columns: 1fr;
 
-        gap: 22px;
+        gap: 25px;
+      }
+
+      .ask-header {
+        grid-template-columns: 1fr;
+
+        gap: 18px;
+      }
+
+      .ask-interface {
+        grid-template-columns: 1fr;
+      }
+
+      .questions {
+        padding-right: 0;
+
+        border-right: 0;
+        border-bottom: 1px solid #bcc3ca;
+      }
+
+      .answer {
+        padding-left: 0;
+      }
+
+      .random-grid {
+        grid-template-columns: 1fr;
+
+        gap: 35px;
       }
     }
 
 
-    /* ==========================================================
+    /* =========================================================
        MOBILE
-    ========================================================== */
+    ========================================================= */
 
     @media (max-width: 650px) {
 
@@ -1038,7 +897,7 @@
       }
 
 
-      /* header */
+      /* nav */
 
       .nav {
         height: 66px;
@@ -1051,8 +910,6 @@
       .brand-mark {
         width: 30px;
         height: 30px;
-
-        font-size: 15px;
       }
 
       .nav-links > a:not(.nav-cta) {
@@ -1071,14 +928,14 @@
       .hero {
         background:
           radial-gradient(
-            550px 300px at 90% 0%,
-            rgba(85, 142, 224, 0.25),
-            rgba(85, 142, 224, 0) 72%
+            520px 290px at 88% 0%,
+            rgba(61, 127, 227, 0.24),
+            rgba(61, 127, 227, 0) 73%
           ),
           linear-gradient(
             180deg,
-            #edf4fc 0%,
-            #f5f9fd 52%,
+            #eaf3ff,
+            #f5f9ff 58%,
             #ffffff 100%
           );
       }
@@ -1086,12 +943,11 @@
       .hero-grid {
         display: block;
 
-        padding:
-          49px 0 45px;
+        padding: 50px 0 34px;
       }
 
-      .hero-label {
-        margin-bottom: 14px;
+      .eyebrow {
+        margin-bottom: 13px;
 
         font-size: 10px;
       }
@@ -1128,73 +984,70 @@
         font-size: 11px;
       }
 
-      .hero-micro {
-        gap: 7px 15px;
+      .hero-art {
+        min-height: 420px;
 
-        margin-top: 26px;
-        padding-top: 17px;
+        margin-top: 32px;
 
-        font-size: 10px;
+        overflow: visible;
+      }
+
+      .hero-art::before {
+        width: 380px;
+        height: 380px;
+
+        right: -140px;
+        top: 30px;
+      }
+
+      .hero-art img {
+        width: 120%;
+        max-width: none;
+
+        transform: translateX(-7%);
       }
 
 
-      /* rendered phone image */
+      /* statement */
 
-      .hero-visual {
-        height: 440px;
-
-        margin-top: 40px;
-
-        border-radius: 25px;
-
-        box-shadow:
-          0 20px 45px rgba(45, 84, 130, 0.1);
+      .statement {
+        padding: 62px 0;
       }
 
-      .hero-visual img {
-        height: 100%;
-        width: auto;
-
-        right: 0;
+      .statement-grid {
+        gap: 17px;
       }
 
-      .visual-badge {
-        top: 16px;
-        left: 16px;
+      .section-label {
+        padding-top: 0;
 
-        font-size: 9px;
-      }
-
-
-      /* Ask */
-
-      .ask-section {
-        padding: 68px 0;
-      }
-
-      .ask-grid {
-        gap: 31px;
-      }
-
-      .section-kicker {
-        margin-bottom: 12px;
-
-        font-size: 10px;
+        font-size: 11px;
       }
 
       h2 {
-        font-size: 36px;
-        line-height: 1.03;
+        font-size: 35px;
+        line-height: 1.04;
       }
 
-      .section-copy {
-        margin-top: 16px;
+      .statement-copy {
+        margin-top: 17px;
 
         font-size: 14px;
       }
 
-      .question-list {
-        margin-top: 22px;
+
+      /* ask */
+
+      .ask-section {
+        padding: 64px 0;
+      }
+
+      .ask-header {
+        margin-bottom: 30px;
+      }
+
+      .ask-header p {
+        font-size: 13px;
       }
 
       .question {
@@ -1203,18 +1056,16 @@
         font-size: 13px;
       }
 
-      .answer-panel {
-        min-height: 345px;
+      .answer {
+        min-height: 330px;
 
-        padding: 23px;
-
-        border-radius: 19px;
+        padding: 26px 0;
       }
 
       .answer-number {
-        margin-top: 38px;
+        margin-top: 36px;
 
-        font-size: 52px;
+        font-size: 51px;
       }
 
       .answer-title {
@@ -1224,8 +1075,6 @@
       }
 
       .answer-copy {
-        margin-top: 12px;
-
         font-size: 13px;
       }
 
@@ -1237,41 +1086,27 @@
       /* random */
 
       .random-section {
-        padding: 65px 0;
+        padding: 62px 0;
       }
 
-      .random-shell {
-        border-radius: 20px;
+      .random-grid {
+        gap: 28px;
       }
 
-      .random-intro {
-        min-height: auto;
-
-        padding:
-          29px 22px 27px;
-      }
-
-      .random-intro h2 {
-        font-size: 34px;
-      }
-
-      .random-button {
-        margin-top: 28px;
-
-        font-size: 11px;
+      .random-copy p {
+        font-size: 14px;
       }
 
       .random-result {
-        min-height: 285px;
+        min-height: 270px;
 
-        padding:
-          27px 22px;
+        padding: 28px 23px;
       }
 
       .random-value {
-        margin-top: 31px;
+        margin-top: 29px;
 
-        font-size: 54px;
+        font-size: 53px;
       }
 
       .random-text {
@@ -1282,11 +1117,7 @@
       /* privacy */
 
       .privacy {
-        padding: 65px 0;
-      }
-
-      .privacy h2 {
-        font-size: 34px;
+        padding: 62px 0;
       }
 
       .privacy-copy {
@@ -1294,23 +1125,20 @@
       }
 
       .privacy-points {
-        align-items: flex-start;
-        flex-direction: column;
+        grid-template-columns: 1fr;
 
-        gap: 11px;
-
-        margin-top: 26px;
+        gap: 18px;
       }
 
 
-      /* final CTA */
+      /* CTA */
 
       .final-cta {
-        padding: 68px 0;
+        padding: 65px 0;
       }
 
       .final-cta h2 {
-        font-size: 36px;
+        font-size: 35px;
       }
 
 
@@ -1324,7 +1152,6 @@
       }
     }
 
-
     @media (prefers-reduced-motion: reduce) {
       html {
         scroll-behavior: auto;
@@ -1333,162 +1160,135 @@
   </style>
 </head>
 
-
 <body>
 
-  <!-- ========================================================
-       HEADER
-  ========================================================= -->
+<header>
+  <div class="wrap nav">
 
-  <header>
+    <a class="brand" href="#top">
+      <span class="brand-mark">A</span>
+      Aurel
+    </a>
 
-    <div class="wrap nav">
+    <nav class="nav-links">
+      <a href="#fragen">Frag Aurel</a>
+      <a href="#entdecken">Entdecken</a>
+      <a href="#privatsphaere">Privatsphäre</a>
 
       <a
-        href="#top"
-        class="brand"
-        aria-label="Aurel Startseite"
+        class="nav-cta"
+        href="mailto:info@aurelfinance.de?subject=Aurel%20Beta"
       >
-        <span class="brand-mark">
-          A
-        </span>
-
-        Aurel
+        Beta-Updates
       </a>
+    </nav>
+
+  </div>
+</header>
 
 
-      <nav class="nav-links">
+<main id="top">
 
-        <a href="#fragen">
-          Frag Aurel
-        </a>
+  <!-- =======================================================
+       HERO
+  ======================================================== -->
 
-        <a href="#entdecken">
-          Entdecken
-        </a>
+  <section class="hero">
 
-        <a href="#privatsphaere">
-          Privatsphäre
-        </a>
+    <div class="wrap hero-grid">
 
-        <a
-          class="nav-cta"
-          href="mailto:info@aurelfinance.de?subject=Aurel%20Beta"
-        >
-          Beta-Updates
-        </a>
+      <div>
 
-      </nav>
+        <p class="eyebrow">
+          Personal Finance für iPhone
+        </p>
 
-    </div>
+        <h1>
+          Verstehen, was sich verändert.
+        </h1>
 
-  </header>
+        <p class="hero-copy">
+          Aurel verbindet deine Finanzen zu einem klaren Bild
+          und zeigt dir, was im Alltag tatsächlich auffällt.
+        </p>
 
+        <div class="hero-actions">
 
-  <main id="top">
-
-    <!-- ======================================================
-         HERO
-    ======================================================= -->
-
-    <section class="hero">
-
-      <div class="wrap hero-grid">
-
-        <div class="hero-content">
-
-          <p class="hero-label">
-            Aurel Finance
-          </p>
-
-          <h1>
-            Verstehen, was sich verändert.
-          </h1>
-
-          <p class="hero-copy">
-            Aurel verbindet deine Finanzen zu einem klaren Bild
-            und zeigt dir, was im Alltag tatsächlich auffällt.
-          </p>
-
-
-          <div class="hero-actions">
-
-            <a
-              class="primary-button"
-              href="#fragen"
-            >
-              Aurel ausprobieren
-            </a>
-
-            <div class="development-note">
-
-              <span class="development-dot"></span>
-
-              Für iPhone in Entwicklung
-
-            </div>
-
-          </div>
-
-
-          <div class="hero-micro">
-
-            <span>
-              Veränderungen verstehen
-            </span>
-
-            <span>
-              Fragen stellen
-            </span>
-
-            <span>
-              Local-first gedacht
-            </span>
-
-          </div>
-
-        </div>
-
-
-        <!--
-          We deliberately crop the right side of og-aurel.png here.
-          The image already contains the polished angled Aurel phone.
-          The marketing headline baked into the LEFT side of the
-          image remains outside the visible crop.
-        -->
-
-        <div class="hero-visual">
-
-          <img
-            src="og-aurel.png"
-            alt="Aurel Finance auf dem iPhone mit Sicher verfügbar, Finanzverlauf und Frag Aurel"
+          <a
+            class="primary-button"
+            href="#fragen"
           >
+            Aurel ausprobieren
+          </a>
 
-          <div class="visual-badge">
-
-            <span class="visual-badge-dot"></span>
-
-            Produktvorschau
-
+          <div class="development">
+            <span class="development-dot"></span>
+            Für iPhone in Entwicklung
           </div>
 
         </div>
 
       </div>
 
-    </section>
+
+      <div class="hero-art">
+
+        <img
+          src="aure-hero.png"
+          alt="Aurel Finance auf dem iPhone mit Finanzverlauf, bevorstehenden Zahlungen und Frag Aurel"
+        >
+
+      </div>
+
+    </div>
+
+  </section>
 
 
-    <!-- ======================================================
-         ASK AUREL
-    ======================================================= -->
+  <!-- =======================================================
+       SHORT PRODUCT STATEMENT
+  ======================================================== -->
 
-    <section
-      class="ask-section"
-      id="fragen"
-    >
+  <section class="statement">
 
-      <div class="wrap ask-grid">
+    <div class="wrap statement-grid">
+
+      <div class="section-label">
+        Aurel
+      </div>
+
+      <div>
+
+        <h2>
+          Nicht mehr Finanzdaten. Mehr Zusammenhang.
+        </h2>
+
+        <p class="statement-copy">
+          Kontostände und Buchungen sagen dir, was passiert ist.
+          Aurel soll dir zusätzlich zeigen, warum sich etwas verändert,
+          was ungewöhnlich ist und welche Muster in deinen eigenen
+          Finanzen sichtbar werden.
+        </p>
+
+      </div>
+
+    </div>
+
+  </section>
+
+
+  <!-- =======================================================
+       ASK AUREL
+  ======================================================== -->
+
+  <section
+    class="ask-section"
+    id="fragen"
+  >
+
+    <div class="wrap">
+
+      <div class="ask-header">
 
         <div>
 
@@ -1497,78 +1297,63 @@
           </div>
 
           <h2>
-            Deine Finanzen sollten Fragen beantworten können.
+            Frag dein Geld, statt danach zu suchen.
           </h2>
 
-          <p class="section-copy">
-            Kein Suchen durch Kategorien und Diagramme.
-            Wähle eine Frage und sieh, wie Aurel deine
-            Finanzdaten verständlich machen kann.
-          </p>
+        </div>
+
+        <p>
+          Wähle eine Frage. Die Beispiele zeigen, wie Aurel
+          finanzielle Veränderungen mit konkreten Zahlen erklären kann.
+          Alle Werte sind Beispieldaten.
+        </p>
+
+      </div>
 
 
-          <div class="question-list">
+      <div class="ask-interface">
 
-            <button
-              class="question active"
-              type="button"
-              data-answer="changed"
-            >
-              Was hat sich diesen Monat verändert?
+        <div class="questions">
 
-              <span class="question-arrow">
-                →
-              </span>
-            </button>
+          <button
+            class="question active"
+            type="button"
+            data-answer="changed"
+          >
+            Was hat sich diesen Monat verändert?
+            <span>→</span>
+          </button>
 
+          <button
+            class="question"
+            type="button"
+            data-answer="higher"
+          >
+            Warum waren meine Ausgaben höher?
+            <span>→</span>
+          </button>
 
-            <button
-              class="question"
-              type="button"
-              data-answer="higher"
-            >
-              Warum waren meine Ausgaben höher?
-
-              <span class="question-arrow">
-                →
-              </span>
-            </button>
-
-
-            <button
-              class="question"
-              type="button"
-              data-answer="regular"
-            >
-              Wo gebe ich regelmäßig mehr aus?
-
-              <span class="question-arrow">
-                →
-              </span>
-            </button>
-
-          </div>
+          <button
+            class="question"
+            type="button"
+            data-answer="regular"
+          >
+            Wo gebe ich regelmäßig mehr aus?
+            <span>→</span>
+          </button>
 
         </div>
 
 
         <div
-          class="answer-panel"
+          class="answer"
           aria-live="polite"
         >
 
-          <div class="answer-top">
-
-            <span class="answer-aurel">
-              Aurel
-            </span>
-
-            <span>
-              Beispieldaten
-            </span>
-
+          <div class="answer-meta">
+            <strong>Aurel</strong>
+            <span>Beispieldaten</span>
           </div>
-
 
           <div
             class="answer-number"
@@ -1577,14 +1362,12 @@
             +184 €
           </div>
 
-
           <div
             class="answer-title"
             id="answer-title"
           >
             Deine variablen Ausgaben liegen über dem Vormonat.
           </div>
-
 
           <div
             class="answer-copy"
@@ -1594,7 +1377,6 @@
             61 € auf Lebensmittel. Deine regelmäßigen Fixkosten
             sind nahezu unverändert.
           </div>
-
 
           <div
             class="answer-source"
@@ -1607,391 +1389,380 @@
 
       </div>
 
-    </section>
+    </div>
+
+  </section>
 
 
-    <!-- ======================================================
-         RANDOM DISCOVERY
-    ======================================================= -->
+  <!-- =======================================================
+       RANDOM FACT
+  ======================================================== -->
 
-    <section
-      class="random-section"
-      id="entdecken"
-    >
+  <section
+    class="random-section"
+    id="entdecken"
+  >
 
-      <div class="wrap">
+    <div class="wrap random-grid">
 
-        <div class="random-shell">
+      <div class="random-copy">
 
-          <div class="random-intro">
-
-            <div>
-
-              <div class="section-kicker">
-                Überrasch mich
-              </div>
-
-              <h2>
-                Die Zahl, nach der du nie gesucht hättest.
-              </h2>
-
-            </div>
-
-
-            <button
-              class="random-button"
-              id="random-button"
-              type="button"
-            >
-              Noch etwas zeigen
-            </button>
-
-          </div>
-
-
-          <div
-            class="random-result"
-            aria-live="polite"
-          >
-
-            <div class="random-meta">
-              Beispieldaten
-            </div>
-
-            <div
-              class="random-value"
-              id="random-value"
-            >
-              19 Tage
-            </div>
-
-            <div
-              class="random-text"
-              id="random-text"
-            >
-              So lange ist dein letzter Amazon-Einkauf her.
-            </div>
-
-          </div>
-
+        <div class="section-kicker">
+          Überrasch mich
         </div>
-
-      </div>
-
-    </section>
-
-
-    <!-- ======================================================
-         PRIVACY
-    ======================================================= -->
-
-    <section
-      class="privacy"
-      id="privatsphaere"
-    >
-
-      <div class="wrap privacy-grid">
-
-        <div class="privacy-label">
-          Privatsphäre
-        </div>
-
-
-        <div>
-
-          <h2>
-            Finanzdaten verdienen eine andere Architektur.
-          </h2>
-
-          <p class="privacy-copy">
-            Aurel wird local-first und mit Datenminimierung
-            entwickelt. Finanzielle Berechnungen bleiben
-            nachvollziehbar und sensible Daten sollen so wenig
-            wie möglich weitergegeben werden.
-          </p>
-
-
-          <div class="privacy-points">
-
-            <span class="privacy-point">
-              Lokal verarbeiten
-            </span>
-
-            <span class="privacy-point">
-              So wenig wie nötig
-            </span>
-
-            <span class="privacy-point">
-              Nachvollziehbare Zahlen
-            </span>
-
-          </div>
-
-        </div>
-
-      </div>
-
-    </section>
-
-
-    <!-- ======================================================
-         FINAL CTA
-    ======================================================= -->
-
-    <section class="final-cta">
-
-      <div class="wrap">
 
         <h2>
-          Aurel ist noch nicht fertig. Aber die Richtung steht.
+          Die Zahl, nach der du nie gesucht hättest.
         </h2>
 
         <p>
-          Wenn du beim Testen dabei sein oder erfahren möchtest,
-          wann Aurel startet, schreib uns.
+          Manchmal ist die interessanteste Information genau die,
+          nach der du selbst nie gefragt hättest.
         </p>
 
-        <a
-          class="final-button"
-          href="mailto:info@aurelfinance.de?subject=Aurel%20Beta"
+        <button
+          class="random-button"
+          id="random-button"
+          type="button"
         >
-          Interesse an der Beta
-        </a>
-
-      </div>
-
-    </section>
-
-  </main>
-
-
-  <!-- ========================================================
-       FOOTER
-  ========================================================= -->
-
-  <footer>
-
-    <div class="wrap footer">
-
-      <div>
-        <strong>Aurel</strong>
-        · Köln, Deutschland
-      </div>
-
-
-      <div class="footer-links">
-
-        <a href="#privatsphaere">
-          Privatsphäre
-        </a>
-
-        <a href="mailto:info@aurelfinance.de">
-          Kontakt
-        </a>
+          Noch etwas zeigen
+        </button>
 
       </div>
 
 
-      <div>
-        © 2026 Aurel Finance
+      <div
+        class="random-result"
+        aria-live="polite"
+      >
+
+        <div class="random-meta">
+          Beispieldaten
+        </div>
+
+        <div
+          class="random-value"
+          id="random-value"
+        >
+          19 Tage
+        </div>
+
+        <div
+          class="random-text"
+          id="random-text"
+        >
+          So lange ist dein letzter Amazon-Einkauf her.
+        </div>
+
       </div>
 
     </div>
 
-  </footer>
+  </section>
 
 
-  <script>
+  <!-- =======================================================
+       PRIVACY
+  ======================================================== -->
 
-    /* ========================================================
-       FRAG AUREL
-    ======================================================== */
+  <section
+    class="privacy"
+    id="privatsphaere"
+  >
 
-    const answers = {
+    <div class="wrap privacy-grid">
 
-      changed: {
-        number: "+184 €",
+      <div class="section-label">
+        Privatsphäre
+      </div>
 
-        title:
-          "Deine variablen Ausgaben liegen über dem Vormonat.",
+      <div>
 
-        copy:
-          "96 € des Unterschieds entfallen auf Reisen und 61 € auf Lebensmittel. Deine regelmäßigen Fixkosten sind nahezu unverändert.",
+        <h2>
+          Finanzdaten verdienen eine andere Architektur.
+        </h2>
 
-        source:
-          "Grundlage · 42 Buchungen · 01.–18. August · Beispieldaten"
-      },
-
-
-      higher: {
-        number: "61 €",
-
-        title:
-          "Lebensmittel erklären den größten Teil des Anstiegs.",
-
-        copy:
-          "Deine Lebensmittelausgaben liegen 18 % über deinem üblichen Monatsverlauf. REWE macht davon den größten Unterschied aus.",
-
-        source:
-          "Grundlage · 17 Lebensmittel-Buchungen · Beispieldaten"
-      },
+        <p class="privacy-copy">
+          Aurel wird local-first und mit Datenminimierung entwickelt.
+          Finanzielle Berechnungen bleiben nachvollziehbar und sensible
+          Daten sollen so wenig wie möglich weitergegeben werden.
+        </p>
 
 
-      regular: {
-        number: "+14 %",
+        <div class="privacy-points">
 
-        title:
-          "Dein durchschnittlicher Supermarkt-Einkauf ist gestiegen.",
+          <div class="privacy-point">
+            <strong>Lokal verarbeiten</strong>
+            <span>
+              Verarbeitung soll dort auf deinem Gerät stattfinden,
+              wo es technisch sinnvoll ist.
+            </span>
+          </div>
 
-        copy:
-          "Der durchschnittliche Einkaufswert liegt aktuell bei 24,80 €. Vor drei Monaten waren es noch 21,76 €.",
+          <div class="privacy-point">
+            <strong>So wenig wie nötig</strong>
+            <span>
+              Externe Systeme sollen nur die Informationen erhalten,
+              die eine konkrete Funktion wirklich braucht.
+            </span>
+          </div>
 
-        source:
-          "Grundlage · 90 Tage · 43 Supermarkt-Buchungen · Beispieldaten"
-      }
+          <div class="privacy-point">
+            <strong>Nachvollziehbare Zahlen</strong>
+            <span>
+              Finanzielle Ergebnisse brauchen überprüfbare Logik
+              statt erfundener Werte.
+            </span>
+          </div>
 
-    };
+        </div>
 
+      </div>
 
-    const questionButtons =
-      document.querySelectorAll(".question");
+    </div>
 
-    const answerNumber =
-      document.getElementById("answer-number");
-
-    const answerTitle =
-      document.getElementById("answer-title");
-
-    const answerCopy =
-      document.getElementById("answer-copy");
-
-    const answerSource =
-      document.getElementById("answer-source");
+  </section>
 
 
-    questionButtons.forEach(button => {
+  <!-- =======================================================
+       FINAL CTA
+  ======================================================== -->
 
-      button.addEventListener("click", () => {
+  <section class="final-cta">
 
-        questionButtons.forEach(item => {
-          item.classList.remove("active");
-        });
+    <div class="wrap">
 
-        button.classList.add("active");
+      <h2>
+        Interesse an Aurel?
+      </h2>
 
-        const answer =
-          answers[button.dataset.answer];
+      <p>
+        Aurel befindet sich noch in Entwicklung.
+        Wenn du von der Beta erfahren möchtest, schreib uns.
+      </p>
 
-        answerNumber.textContent =
-          answer.number;
+      <a
+        class="final-button"
+        href="mailto:info@aurelfinance.de?subject=Aurel%20Beta"
+      >
+        Beta-Updates erhalten
+      </a>
 
-        answerTitle.textContent =
-          answer.title;
+    </div>
 
-        answerCopy.textContent =
-          answer.copy;
+  </section>
 
-        answerSource.textContent =
-          answer.source;
+</main>
 
+
+<footer>
+
+  <div class="wrap footer">
+
+    <div>
+      <strong>Aurel</strong>
+      · Köln, Deutschland
+    </div>
+
+    <div class="footer-links">
+
+      <a href="#privatsphaere">
+        Privatsphäre
+      </a>
+
+      <a href="mailto:info@aurelfinance.de">
+        Kontakt
+      </a>
+
+    </div>
+
+    <div>
+      © 2026 Aurel Finance
+    </div>
+
+  </div>
+
+</footer>
+
+
+<script>
+
+  /* =========================================================
+     FRAG AUREL
+  ========================================================= */
+
+  const answers = {
+
+    changed: {
+      number: "+184 €",
+      title:
+        "Deine variablen Ausgaben liegen über dem Vormonat.",
+      copy:
+        "96 € des Unterschieds entfallen auf Reisen und 61 € auf Lebensmittel. Deine regelmäßigen Fixkosten sind nahezu unverändert.",
+      source:
+        "Grundlage · 42 Buchungen · 01.–18. August · Beispieldaten"
+    },
+
+    higher: {
+      number: "61 €",
+      title:
+        "Lebensmittel erklären den größten Teil des Anstiegs.",
+      copy:
+        "Deine Lebensmittelausgaben liegen 18 % über deinem üblichen Monatsverlauf. REWE macht davon den größten Unterschied aus.",
+      source:
+        "Grundlage · 17 Lebensmittel-Buchungen · Beispieldaten"
+    },
+
+    regular: {
+      number: "+14 %",
+      title:
+        "Dein durchschnittlicher Supermarkt-Einkauf ist gestiegen.",
+      copy:
+        "Der durchschnittliche Einkaufswert liegt aktuell bei 24,80 €. Vor drei Monaten waren es noch 21,76 €.",
+      source:
+        "Grundlage · 90 Tage · 43 Supermarkt-Buchungen · Beispieldaten"
+    }
+
+  };
+
+
+  const questionButtons =
+    document.querySelectorAll(".question");
+
+  const answerNumber =
+    document.getElementById("answer-number");
+
+  const answerTitle =
+    document.getElementById("answer-title");
+
+  const answerCopy =
+    document.getElementById("answer-copy");
+
+  const answerSource =
+    document.getElementById("answer-source");
+
+
+  questionButtons.forEach(button => {
+
+    button.addEventListener("click", () => {
+
+      questionButtons.forEach(item => {
+        item.classList.remove("active");
       });
 
-    });
+      button.classList.add("active");
 
+      const answer =
+        answers[button.dataset.answer];
 
-    /* ========================================================
-       RANDOM FACT
-    ======================================================== */
+      answerNumber.textContent =
+        answer.number;
 
-    const facts = [
+      answerTitle.textContent =
+        answer.title;
 
-      {
-        value: "19 Tage",
-        text:
-          "So lange ist dein letzter Amazon-Einkauf her."
-      },
+      answerCopy.textContent =
+        answer.copy;
 
-      {
-        value: "4 Tage",
-        text:
-          "Diesen Monat hattest du bisher vier Tage ganz ohne Ausgaben."
-      },
-
-      {
-        value: "46 €",
-        text:
-          "So viel weniger hast du für Lieferdienste ausgegeben als im gleichen Zeitraum letzten Monat."
-      },
-
-      {
-        value: "Dienstag",
-        text:
-          "An keinem anderen Wochentag war dein durchschnittlicher Einkaufswert zuletzt höher."
-      },
-
-      {
-        value: "3,18 €",
-        text:
-          "Das war dein kleinster REWE-Einkauf in den vergangenen 90 Tagen."
-      },
-
-      {
-        value: "11",
-        text:
-          "So viele unterschiedliche Supermärkte tauchen in deinen letzten 90 Tagen auf."
-      },
-
-      {
-        value: "17 Tage",
-        text:
-          "So lange war deine längste Zeit ohne eine Bestellung bei einem Lieferdienst."
-      },
-
-      {
-        value: "08:14",
-        text:
-          "Um diese Uhrzeit tauchen an Arbeitstagen besonders häufig deine ersten Ausgaben auf."
-      }
-
-    ];
-
-
-    let currentFact = 0;
-
-    const randomValue =
-      document.getElementById("random-value");
-
-    const randomText =
-      document.getElementById("random-text");
-
-    const randomButton =
-      document.getElementById("random-button");
-
-
-    randomButton.addEventListener("click", () => {
-
-      let next = currentFact;
-
-      while (next === currentFact) {
-
-        next =
-          Math.floor(
-            Math.random() * facts.length
-          );
-
-      }
-
-      currentFact = next;
-
-      randomValue.textContent =
-        facts[currentFact].value;
-
-      randomText.textContent =
-        facts[currentFact].text;
+      answerSource.textContent =
+        answer.source;
 
     });
 
-  </script>
+  });
+
+
+  /* =========================================================
+     RANDOM FACT
+  ========================================================= */
+
+  const facts = [
+
+    {
+      value: "19 Tage",
+      text:
+        "So lange ist dein letzter Amazon-Einkauf her."
+    },
+
+    {
+      value: "4 Tage",
+      text:
+        "Diesen Monat hattest du bisher vier Tage ganz ohne Ausgaben."
+    },
+
+    {
+      value: "46 €",
+      text:
+        "So viel weniger hast du für Lieferdienste ausgegeben als im gleichen Zeitraum letzten Monat."
+    },
+
+    {
+      value: "Dienstag",
+      text:
+        "An keinem anderen Wochentag war dein durchschnittlicher Einkaufswert zuletzt höher."
+    },
+
+    {
+      value: "3,18 €",
+      text:
+        "Das war dein kleinster REWE-Einkauf in den vergangenen 90 Tagen."
+    },
+
+    {
+      value: "11",
+      text:
+        "So viele unterschiedliche Supermärkte tauchen in deinen letzten 90 Tagen auf."
+    },
+
+    {
+      value: "17 Tage",
+      text:
+        "So lange war deine längste Zeit ohne eine Bestellung bei einem Lieferdienst."
+    },
+
+    {
+      value: "08:14",
+      text:
+        "Um diese Uhrzeit tauchen an Arbeitstagen besonders häufig deine ersten Ausgaben auf."
+    }
+
+  ];
+
+
+  let currentFact = 0;
+
+  const randomValue =
+    document.getElementById("random-value");
+
+  const randomText =
+    document.getElementById("random-text");
+
+  const randomButton =
+    document.getElementById("random-button");
+
+
+  randomButton.addEventListener("click", () => {
+
+    let next = currentFact;
+
+    while (next === currentFact) {
+      next =
+        Math.floor(
+          Math.random() * facts.length
+        );
+    }
+
+    currentFact = next;
+
+    randomValue.textContent =
+      facts[currentFact].value;
+
+    randomText.textContent =
+      facts[currentFact].text;
+
+  });
+
+</script>
 
 </body>
 </html>
