@@ -1,8 +1,13 @@
 <!DOCTYPE html>
 <html lang="de">
+
 <head>
   <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <meta
+    name="viewport"
+    content="width=device-width, initial-scale=1.0"
+  >
 
   <title>Aurel — Verstehe dein Geld</title>
 
@@ -11,27 +16,38 @@
     content="Aurel verbindet deine Finanzen zu einem klaren Bild und zeigt dir, was sich wirklich verändert."
   >
 
-  <meta name="theme-color" content="#f7f8fa">
+  <meta name="theme-color" content="#edf4fc">
 
-  <meta property="og:title" content="Aurel — Verstehe dein Geld">
+  <meta
+    property="og:title"
+    content="Aurel — Verstehe dein Geld"
+  >
+
   <meta
     property="og:description"
     content="Nicht nur sehen, was passiert ist. Verstehen, was sich verändert."
   >
-  <meta property="og:type" content="website">
-  <meta property="og:url" content="https://aurelfinance.de/">
 
-  <link rel="canonical" href="https://aurelfinance.de/">
+  <meta
+    property="og:type"
+    content="website"
+  >
+
+  <meta
+    property="og:url"
+    content="https://aurelfinance.de/"
+  >
+
+  <link
+    rel="canonical"
+    href="https://aurelfinance.de/"
+  >
 
   <link
     rel="icon"
-    href="data:image/svg+xml,
-    %3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E
-    %3Crect width='64' height='64' rx='16' fill='%23101214'/%3E
-    %3Ctext x='32' y='42' text-anchor='middle'
-    font-size='32' font-family='Arial' font-weight='700'
-    fill='white'%3EA%3C/text%3E%3C/svg%3E"
+    href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='16' fill='%23101214'/%3E%3Ctext x='32' y='42' text-anchor='middle' font-size='32' font-family='Arial' font-weight='700' fill='white'%3EA%3C/text%3E%3C/svg%3E"
   >
+
 
   <style>
 
@@ -46,12 +62,15 @@
       --blue: #2e69d5;
       --blue-soft: #eaf1fb;
       --blue-light: #f1f6fc;
+      --blue-pale: #edf4fc;
+      --blue-dark: #2d6395;
 
       --green: #168b52;
 
       --background: #ffffff;
       --surface: #f6f7f8;
-      --line: #e4e7ea;
+
+      --line: #e2e6e9;
 
       --max: 1180px;
     }
@@ -84,6 +103,7 @@
         sans-serif;
 
       -webkit-font-smoothing: antialiased;
+      text-rendering: optimizeLegibility;
     }
 
 
@@ -113,9 +133,10 @@
       position: relative;
       z-index: 20;
 
-      background: rgba(255,255,255,.94);
+      background: #edf4fc;
 
-      border-bottom: 1px solid rgba(16,18,22,.07);
+      border-bottom:
+        1px solid rgba(16,18,22,.06);
     }
 
 
@@ -148,10 +169,10 @@
       display: grid;
       place-items: center;
 
-      border-radius: 9px;
-
       background: var(--ink);
       color: white;
+
+      border-radius: 9px;
 
       font-size: 16px;
       font-weight: 750;
@@ -181,10 +202,10 @@
     .nav-cta {
       padding: 10px 15px;
 
-      border-radius: 999px;
-
       background: var(--ink);
       color: white !important;
+
+      border-radius: 999px;
 
       font-size: 12px;
     }
@@ -196,23 +217,33 @@
     ====================================================== */
 
     .hero {
+      position: relative;
       overflow: hidden;
 
       background:
+        radial-gradient(
+          1000px 430px at 65% -100px,
+          rgba(89, 142, 220, .23) 0%,
+          rgba(89, 142, 220, .11) 45%,
+          rgba(89, 142, 220, 0) 75%
+        ),
         linear-gradient(
-          135deg,
-          #ffffff 0%,
-          #ffffff 48%,
-          #f1f6fc 100%
+          180deg,
+          #edf4fc 0%,
+          #f4f8fd 42%,
+          #ffffff 100%
         );
     }
 
 
     .hero-grid {
-      min-height: 720px;
+      min-height: 760px;
 
       display: grid;
-      grid-template-columns: minmax(0, 1fr) 480px;
+      grid-template-columns:
+        minmax(0, 1fr)
+        500px;
+
       gap: 88px;
       align-items: center;
     }
@@ -235,7 +266,9 @@
 
       margin: 0;
 
-      font-size: clamp(62px, 6.2vw, 94px);
+      font-size:
+        clamp(62px, 6.2vw, 94px);
+
       line-height: .94;
 
       letter-spacing: -.068em;
@@ -297,23 +330,76 @@
       width: 7px;
       height: 7px;
 
-      border-radius: 50%;
-
       background: var(--blue);
+
+      border-radius: 50%;
     }
 
 
 
     /* ======================================================
-       FINISHED APP PREVIEW
+       ANGLED PRODUCT PREVIEW
     ====================================================== */
 
     .device-stage {
       position: relative;
 
-      height: 650px;
+      height: 680px;
 
       align-self: end;
+    }
+
+
+    .device-glow {
+      position: absolute;
+
+      left: 50%;
+      bottom: 20px;
+
+      width: 470px;
+      height: 170px;
+
+      transform: translateX(-50%);
+
+      background:
+        radial-gradient(
+          ellipse at center,
+          rgba(82, 139, 221, .25) 0%,
+          rgba(82, 139, 221, .11) 45%,
+          rgba(82, 139, 221, 0) 75%
+        );
+
+      filter: blur(28px);
+    }
+
+
+    .device-back {
+      position: absolute;
+
+      left: 50%;
+      bottom: -22px;
+
+      width: 355px;
+      height: 665px;
+
+      transform:
+        translateX(-32%)
+        rotate(8deg);
+
+      background:
+        linear-gradient(
+          180deg,
+          #fbfdff,
+          #edf3fa
+        );
+
+      border: 8px solid #1a1e22;
+      border-radius: 48px;
+
+      box-shadow:
+        0 22px 55px rgba(29,45,61,.10);
+
+      opacity: .48;
     }
 
 
@@ -323,20 +409,25 @@
       bottom: -28px;
       left: 50%;
 
-      width: 375px;
-      height: 690px;
+      width: 380px;
+      height: 700px;
 
-      transform: translateX(-50%);
+      transform:
+        translateX(-50%)
+        rotate(-8deg);
+
+      transform-origin:
+        center bottom;
 
       overflow: hidden;
 
-      background: #fff;
+      background: white;
 
       border: 9px solid #16191d;
       border-radius: 50px;
 
       box-shadow:
-        0 35px 80px rgba(27,44,63,.16),
+        0 40px 85px rgba(27,44,63,.17),
         0 8px 22px rgba(27,44,63,.08);
     }
 
@@ -356,6 +447,7 @@
 
     .dynamic-island {
       position: absolute;
+
       z-index: 4;
 
       top: 13px;
@@ -379,7 +471,8 @@
       align-items: flex-end;
       justify-content: space-between;
 
-      padding: 0 20px 17px;
+      padding:
+        0 20px 17px;
     }
 
 
@@ -407,10 +500,10 @@
       display: grid;
       place-items: center;
 
-      border-radius: 50%;
-
       background: #e9edf4;
       color: var(--navy);
+
+      border-radius: 50%;
 
       font-size: 10px;
       font-weight: 700;
@@ -418,7 +511,8 @@
 
 
     .app-body {
-      padding: 18px 19px 90px;
+      padding:
+        18px 19px 90px;
     }
 
 
@@ -481,6 +575,7 @@
 
     .chart-label {
       position: absolute;
+
       right: 1px;
 
       color: #747d8d;
@@ -536,7 +631,8 @@
 
       padding: 13px 0;
 
-      border-bottom: 1px solid #eceeef;
+      border-bottom:
+        1px solid #eceeef;
     }
 
 
@@ -603,13 +699,16 @@
       height: 66px;
 
       display: grid;
-      grid-template-columns: repeat(4,1fr);
+      grid-template-columns:
+        repeat(4,1fr);
 
       align-items: center;
 
-      background: rgba(255,255,255,.96);
+      background:
+        rgba(255,255,255,.96);
 
-      border-top: 1px solid #e5e8eb;
+      border-top:
+        1px solid #e5e8eb;
     }
 
 
@@ -639,26 +738,30 @@
 
 
 
-    /* SECONDARY PRODUCT CARD */
+    /* floating Aurel insight */
 
     .ask-float {
       position: absolute;
 
       z-index: 8;
 
-      left: -52px;
-      bottom: 105px;
+      right: -12px;
+      bottom: 118px;
 
-      width: 230px;
+      width: 235px;
 
       padding: 16px;
 
       background: white;
 
-      border: 1px solid var(--line);
+      border:
+        1px solid var(--line);
+
       border-radius: 17px;
 
-      box-shadow: 0 20px 45px rgba(31,47,63,.13);
+      box-shadow:
+        0 20px 45px
+        rgba(31,47,63,.14);
     }
 
 
@@ -697,7 +800,8 @@
     ====================================================== */
 
     .ask-section {
-      padding: 115px 0 125px;
+      padding:
+        105px 0 110px;
 
       background: #f7f8fa;
     }
@@ -705,8 +809,10 @@
 
     .ask-grid {
       display: grid;
-      grid-template-columns: .85fr 1.15fr;
-      gap: 85px;
+      grid-template-columns:
+        .85fr 1.15fr;
+
+      gap: 80px;
       align-items: start;
     }
 
@@ -728,7 +834,9 @@
 
       margin: 0;
 
-      font-size: clamp(43px, 4.4vw, 64px);
+      font-size:
+        clamp(43px, 4.4vw, 64px);
+
       line-height: 1;
 
       letter-spacing: -.057em;
@@ -749,9 +857,10 @@
 
 
     .question-list {
-      margin-top: 32px;
+      margin-top: 30px;
 
-      border-top: 1px solid #d9dcdf;
+      border-top:
+        1px solid #d9dcdf;
     }
 
 
@@ -763,13 +872,13 @@
       justify-content: space-between;
       gap: 20px;
 
-      padding: 19px 0;
+      padding: 18px 0;
 
       border: 0;
-      border-bottom: 1px solid #d9dcdf;
+      border-bottom:
+        1px solid #d9dcdf;
 
       background: transparent;
-
       color: var(--ink);
 
       cursor: pointer;
@@ -795,17 +904,17 @@
 
 
 
-    /* ANSWER PANEL */
-
     .answer-panel {
-      min-height: 475px;
+      min-height: 445px;
 
-      padding: 35px;
+      padding: 34px;
 
       background: white;
 
-      border: 1px solid #dde0e2;
-      border-radius: 24px;
+      border:
+        1px solid #dde0e2;
+
+      border-radius: 22px;
     }
 
 
@@ -829,11 +938,11 @@
 
 
     .answer-number {
-      margin-top: 67px;
+      margin-top: 60px;
 
       color: var(--navy);
 
-      font-size: 67px;
+      font-size: 66px;
       line-height: .95;
 
       font-weight: 630;
@@ -844,7 +953,7 @@
     .answer-title {
       max-width: 480px;
 
-      margin-top: 21px;
+      margin-top: 20px;
 
       font-size: 21px;
       line-height: 1.3;
@@ -856,7 +965,7 @@
     .answer-copy {
       max-width: 500px;
 
-      margin-top: 17px;
+      margin-top: 16px;
 
       color: var(--text-soft);
 
@@ -866,10 +975,11 @@
 
 
     .answer-source {
-      margin-top: 42px;
-      padding-top: 16px;
+      margin-top: 38px;
+      padding-top: 15px;
 
-      border-top: 1px solid var(--line);
+      border-top:
+        1px solid var(--line);
 
       color: var(--text-muted);
 
@@ -884,7 +994,8 @@
     ====================================================== */
 
     .random-section {
-      padding: 100px 0;
+      padding:
+        90px 0;
 
       background: white;
     }
@@ -892,19 +1003,22 @@
 
     .random-shell {
       display: grid;
-      grid-template-columns: 1fr 1.15fr;
+      grid-template-columns:
+        1fr 1.15fr;
 
       overflow: hidden;
 
-      border: 1px solid #dce0e3;
-      border-radius: 25px;
+      border:
+        1px solid #dce0e3;
+
+      border-radius: 24px;
     }
 
 
     .random-intro {
-      min-height: 400px;
+      min-height: 380px;
 
-      padding: 50px;
+      padding: 46px;
 
       display: flex;
       flex-direction: column;
@@ -915,7 +1029,8 @@
     .random-intro h2 {
       max-width: 430px;
 
-      font-size: clamp(40px,4vw,57px);
+      font-size:
+        clamp(39px,4vw,56px);
     }
 
 
@@ -938,17 +1053,19 @@
 
 
     .random-result {
-      min-height: 400px;
+      min-height: 380px;
 
-      padding: 50px;
+      padding: 46px;
 
       display: flex;
       flex-direction: column;
       justify-content: center;
 
-      background: var(--blue-soft);
+      background:
+        var(--blue-soft);
 
-      border-left: 1px solid #d6e0ec;
+      border-left:
+        1px solid #d6e0ec;
     }
 
 
@@ -963,11 +1080,11 @@
 
 
     .random-value {
-      margin-top: 49px;
+      margin-top: 45px;
 
       color: var(--navy);
 
-      font-size: 76px;
+      font-size: 74px;
       line-height: .95;
 
       font-weight: 630;
@@ -993,18 +1110,22 @@
     ====================================================== */
 
     .privacy {
-      padding: 105px 0;
-
-      border-top: 1px solid var(--line);
+      padding:
+        90px 0;
 
       background: #fafafa;
+
+      border-top:
+        1px solid var(--line);
     }
 
 
     .privacy-grid {
       display: grid;
-      grid-template-columns: .8fr 1.2fr;
-      gap: 90px;
+      grid-template-columns:
+        .75fr 1.25fr;
+
+      gap: 80px;
     }
 
 
@@ -1017,30 +1138,31 @@
 
 
     .privacy h2 {
-      max-width: 700px;
+      max-width: 680px;
     }
 
 
     .privacy-copy {
-      max-width: 650px;
+      max-width: 640px;
 
-      margin: 23px 0 0;
+      margin: 22px 0 0;
 
       color: var(--text-soft);
 
-      font-size: 16px;
+      font-size: 15px;
       line-height: 1.55;
     }
 
 
     .privacy-points {
       display: flex;
-      gap: 35px;
+      gap: 30px;
 
-      margin-top: 40px;
-      padding-top: 23px;
+      margin-top: 35px;
+      padding-top: 21px;
 
-      border-top: 1px solid var(--line);
+      border-top:
+        1px solid var(--line);
 
       color: var(--text-soft);
 
@@ -1051,11 +1173,12 @@
 
 
     /* ======================================================
-       CTA
+       FINAL CTA
     ====================================================== */
 
     .final-cta {
-      padding: 110px 0;
+      padding:
+        95px 0;
 
       text-align: center;
 
@@ -1064,7 +1187,7 @@
 
 
     .final-cta h2 {
-      max-width: 680px;
+      max-width: 660px;
 
       margin: 0 auto;
     }
@@ -1073,7 +1196,7 @@
     .final-cta p {
       max-width: 500px;
 
-      margin: 22px auto 0;
+      margin: 21px auto 0;
 
       color: var(--text-soft);
 
@@ -1085,7 +1208,7 @@
     .final-button {
       display: inline-flex;
 
-      margin-top: 29px;
+      margin-top: 28px;
       padding: 13px 18px;
 
       background: var(--ink);
@@ -1104,11 +1227,13 @@
     ====================================================== */
 
     footer {
-      padding: 26px 0 35px;
-
-      border-top: 1px solid var(--line);
+      padding:
+        25px 0 34px;
 
       background: white;
+
+      border-top:
+        1px solid var(--line);
     }
 
 
@@ -1151,9 +1276,10 @@
         min-height: auto;
 
         grid-template-columns: 1fr;
-        gap: 65px;
 
-        padding-top: 75px;
+        gap: 60px;
+
+        padding-top: 70px;
       }
 
 
@@ -1167,7 +1293,8 @@
 
       .ask-grid {
         grid-template-columns: 1fr;
-        gap: 55px;
+
+        gap: 50px;
       }
 
 
@@ -1178,13 +1305,16 @@
 
       .random-result {
         border-left: 0;
-        border-top: 1px solid #d6e0ec;
+
+        border-top:
+          1px solid #d6e0ec;
       }
 
 
       .privacy-grid {
         grid-template-columns: 1fr;
-        gap: 25px;
+
+        gap: 24px;
       }
 
     }
@@ -1202,7 +1332,7 @@
       }
 
 
-      /* HEADER */
+      /* header */
 
       .nav {
         height: 66px;
@@ -1233,12 +1363,23 @@
 
 
 
-      /* HERO */
+      /* hero */
+
+      .hero {
+        background:
+          linear-gradient(
+            180deg,
+            #edf4fc 0%,
+            #f4f8fd 37%,
+            #ffffff 100%
+          );
+      }
+
 
       .hero-grid {
         display: block;
 
-        padding-top: 53px;
+        padding-top: 50px;
       }
 
 
@@ -1283,11 +1424,21 @@
       }
 
 
+
+      /* mobile phone becomes straight */
+
       .device-stage {
         width: 100%;
         height: auto;
 
-        margin-top: 46px;
+        margin-top: 42px;
+      }
+
+
+      .device-glow,
+      .device-back,
+      .ask-float {
+        display: none;
       }
 
 
@@ -1310,7 +1461,8 @@
 
 
       .device-screen {
-        border-radius: 32px 32px 0 0;
+        border-radius:
+          32px 32px 0 0;
       }
 
 
@@ -1325,7 +1477,8 @@
       .app-top {
         height: 76px;
 
-        padding: 0 17px 15px;
+        padding:
+          0 17px 15px;
       }
 
 
@@ -1335,7 +1488,8 @@
 
 
       .app-body {
-        padding: 15px 17px 76px;
+        padding:
+          15px 17px 76px;
       }
 
 
@@ -1373,21 +1527,17 @@
       }
 
 
-      .ask-float {
-        display: none;
-      }
 
-
-
-      /* ASK */
+      /* Ask */
 
       .ask-section {
-        padding: 76px 0;
+        padding:
+          72px 0;
       }
 
 
       .ask-grid {
-        gap: 36px;
+        gap: 34px;
       }
 
 
@@ -1399,7 +1549,7 @@
 
 
       h2 {
-        font-size: 38px;
+        font-size: 37px;
         line-height: 1.03;
       }
 
@@ -1424,18 +1574,18 @@
 
 
       .answer-panel {
-        min-height: 370px;
+        min-height: 355px;
 
-        padding: 25px;
+        padding: 24px;
 
         border-radius: 19px;
       }
 
 
       .answer-number {
-        margin-top: 43px;
+        margin-top: 40px;
 
-        font-size: 54px;
+        font-size: 53px;
       }
 
 
@@ -1454,15 +1604,16 @@
 
 
       .answer-source {
-        margin-top: 27px;
+        margin-top: 26px;
       }
 
 
 
-      /* RANDOM */
+      /* random */
 
       .random-section {
-        padding: 74px 0;
+        padding:
+          70px 0;
       }
 
 
@@ -1474,31 +1625,32 @@
       .random-intro {
         min-height: auto;
 
-        padding: 31px 24px 29px;
+        padding:
+          30px 23px 28px;
       }
 
 
       .random-intro h2 {
-        font-size: 36px;
+        font-size: 35px;
       }
 
 
       .random-button {
-        margin-top: 31px;
+        margin-top: 30px;
       }
 
 
       .random-result {
-        min-height: 305px;
+        min-height: 295px;
 
-        padding: 30px 24px;
+        padding: 29px 23px;
       }
 
 
       .random-value {
-        margin-top: 34px;
+        margin-top: 33px;
 
-        font-size: 56px;
+        font-size: 55px;
       }
 
 
@@ -1508,15 +1660,16 @@
 
 
 
-      /* PRIVACY */
+      /* privacy */
 
       .privacy {
-        padding: 74px 0;
+        padding:
+          70px 0;
       }
 
 
       .privacy h2 {
-        font-size: 36px;
+        font-size: 35px;
       }
 
 
@@ -1529,9 +1682,9 @@
         align-items: flex-start;
         flex-direction: column;
 
-        gap: 13px;
+        gap: 12px;
 
-        margin-top: 30px;
+        margin-top: 28px;
       }
 
 
@@ -1539,17 +1692,18 @@
       /* CTA */
 
       .final-cta {
-        padding: 78px 0;
+        padding:
+          74px 0;
       }
 
 
       .final-cta h2 {
-        font-size: 39px;
+        font-size: 38px;
       }
 
 
 
-      /* FOOTER */
+      /* footer */
 
       .footer {
         align-items: flex-start;
@@ -1561,103 +1715,416 @@
     }
 
   </style>
+
 </head>
+
 
 
 <body>
 
 
-<header>
+  <!-- =====================================================
+       HEADER
+  ====================================================== -->
 
-  <div class="wrap nav">
+  <header>
 
+    <div class="wrap nav">
 
-    <a
-      href="#"
-      class="brand"
-    >
-      <span class="brand-mark">
-        A
-      </span>
-
-      Aurel
-    </a>
-
-
-    <nav class="nav-links">
-
-      <a href="#fragen">
-        Frag Aurel
-      </a>
-
-      <a href="#privatsphaere">
-        Privatsphäre
-      </a>
 
       <a
-        class="nav-cta"
-        href="mailto:info@aurelfinance.de?subject=Aurel%20Beta"
+        href="#"
+        class="brand"
       >
-        Beta-Updates
+
+        <span class="brand-mark">
+          A
+        </span>
+
+        Aurel
+
       </a>
 
-    </nav>
 
 
-  </div>
-
-</header>
+      <nav class="nav-links">
 
 
-
-<main>
-
-
-  <!-- ====================================================
-       HERO
-  ===================================================== -->
-
-  <section class="hero">
+        <a href="#fragen">
+          Frag Aurel
+        </a>
 
 
-    <div class="wrap hero-grid">
+        <a href="#privatsphaere">
+          Privatsphäre
+        </a>
 
 
-      <div>
+        <a
+          class="nav-cta"
+          href="mailto:info@aurelfinance.de?subject=Aurel%20Beta"
+        >
+          Beta-Updates
+        </a>
 
 
-        <p class="hero-label">
-          Aurel Finance
-        </p>
+      </nav>
 
 
-        <h1>
-          Verstehen, was sich verändert.
-        </h1>
+    </div>
+
+  </header>
 
 
-        <p class="hero-copy">
-          Aurel verbindet deine Finanzen zu einem klaren Bild
-          und zeigt dir, was im Alltag tatsächlich auffällt.
-        </p>
+
+  <main>
 
 
-        <div class="hero-actions">
+    <!-- =====================================================
+         HERO
+    ====================================================== -->
+
+    <section class="hero">
 
 
-          <a
-            class="primary-button"
-            href="#fragen"
-          >
-            Aurel ausprobieren
-          </a>
+      <div class="wrap hero-grid">
 
 
-          <div class="development-note">
+        <div>
 
-            <span class="development-dot"></span>
 
-            Für iPhone in Entwicklung
+          <p class="hero-label">
+            Aurel Finance
+          </p>
+
+
+          <h1>
+            Verstehen, was sich verändert.
+          </h1>
+
+
+          <p class="hero-copy">
+            Aurel verbindet deine Finanzen zu einem klaren Bild
+            und zeigt dir, was im Alltag tatsächlich auffällt.
+          </p>
+
+
+          <div class="hero-actions">
+
+
+            <a
+              class="primary-button"
+              href="#fragen"
+            >
+              Aurel ausprobieren
+            </a>
+
+
+            <div class="development-note">
+
+
+              <span class="development-dot"></span>
+
+
+              Für iPhone in Entwicklung
+
+
+            </div>
+
+
+          </div>
+
+
+        </div>
+
+
+
+        <!-- PRODUCT -->
+
+
+        <div class="device-stage">
+
+
+          <div class="device-glow"></div>
+
+
+          <div class="device-back"></div>
+
+
+
+          <div class="device">
+
+
+            <div class="device-screen">
+
+
+              <div class="dynamic-island"></div>
+
+
+
+              <div class="app-top">
+
+
+                <span class="app-menu">
+                  ···
+                </span>
+
+
+                <span class="app-logo">
+                  aurel
+                </span>
+
+
+                <span class="app-avatar">
+                  AM
+                </span>
+
+
+              </div>
+
+
+
+              <div class="app-body">
+
+
+                <div class="available-label">
+                  Sicher verfügbar
+                </div>
+
+
+                <div class="available-value">
+                  2.605<small>,66 €</small>
+                </div>
+
+
+                <div class="available-change">
+                  297,91 € weniger ausgegeben als im Juli
+                </div>
+
+
+
+                <div class="chart">
+
+
+                  <svg
+                    viewBox="0 0 320 220"
+                    preserveAspectRatio="none"
+                    aria-label="Beispielhafter Verlauf des sicher verfügbaren Betrags"
+                  >
+
+                    <path
+                      d="
+                        M0,38
+                        L23,59
+                        L45,105
+                        L72,105
+                        L95,127
+                        L124,130
+                        L148,151
+                        L172,166
+                        L198,179
+                        L221,194
+                        L242,216
+                        L268,216
+                        L292,230
+                        L320,246
+                      "
+                      fill="none"
+                      stroke="#2e69d5"
+                      stroke-width="5"
+                      stroke-linecap="round"
+                      stroke-linejoin="round"
+                    />
+
+                  </svg>
+
+
+                  <span class="chart-label top">
+                    3,1 Tsd. €
+                  </span>
+
+
+                  <span class="chart-label middle">
+                    2,8 Tsd. €
+                  </span>
+
+
+                  <span class="chart-label bottom">
+                    2,6 Tsd. €
+                  </span>
+
+
+
+                  <div class="chart-dates">
+
+
+                    <span>
+                      01.08.
+                    </span>
+
+
+                    <span>
+                      Heute
+                    </span>
+
+
+                  </div>
+
+
+                </div>
+
+
+
+                <div class="quick-heading">
+                  Kurz für dich
+                </div>
+
+
+
+                <div class="quick-item">
+
+
+                  <div class="quick-icon">
+                    ◫
+                  </div>
+
+
+                  <div class="quick-copy">
+
+
+                    <div class="quick-name">
+                      Deutschlandticket
+                    </div>
+
+
+                    <div class="quick-meta">
+                      voraussichtlich 1. September
+                    </div>
+
+
+                  </div>
+
+
+                  <div class="quick-price">
+                    58,00 €
+                  </div>
+
+
+                </div>
+
+
+
+                <div class="quick-item">
+
+
+                  <div class="quick-icon">
+                    ↻
+                  </div>
+
+
+                  <div class="quick-copy">
+
+
+                    <div class="quick-name">
+                      Haftpflicht HUK
+                    </div>
+
+
+                    <div class="quick-meta">
+                      voraussichtlich 3. September
+                    </div>
+
+
+                  </div>
+
+
+                  <div class="quick-price">
+                    62,00 €
+                  </div>
+
+
+                </div>
+
+
+              </div>
+
+
+
+              <div class="bottom-nav">
+
+
+                <div class="bottom-item active">
+
+                  <span class="bottom-icon">
+                    ◉
+                  </span>
+
+                  Heute
+
+                </div>
+
+
+                <div class="bottom-item">
+
+                  <span class="bottom-icon">
+                    ◫
+                  </span>
+
+                  Ask
+
+                </div>
+
+
+                <div class="bottom-item">
+
+                  <span class="bottom-icon">
+                    ≡
+                  </span>
+
+                  Umsätze
+
+                </div>
+
+
+                <div class="bottom-item">
+
+                  <span class="bottom-icon">
+                    ▥
+                  </span>
+
+                  Ausgaben
+
+                </div>
+
+
+              </div>
+
+
+            </div>
+
+
+          </div>
+
+
+
+          <div class="ask-float">
+
+
+            <div class="ask-float-label">
+              Frag Aurel
+            </div>
+
+
+            <div class="ask-float-question">
+              Was hat sich diesen Monat verändert?
+            </div>
+
+
+            <div class="ask-float-answer">
+              Deine variablen Ausgaben liegen bisher
+              184 € über Juli.
+            </div>
+
 
           </div>
 
@@ -1668,270 +2135,152 @@
       </div>
 
 
+    </section>
 
-      <!-- PRODUCT PREVIEW -->
 
 
-      <div class="device-stage">
+    <!-- =====================================================
+         ASK AUREL
+    ====================================================== -->
 
+    <section
+      class="ask-section"
+      id="fragen"
+    >
 
-        <div class="device">
 
+      <div class="wrap ask-grid">
 
-          <div class="device-screen">
 
+        <div>
 
-            <div class="dynamic-island"></div>
 
-
-            <div class="app-top">
-
-
-              <span class="app-menu">
-                ···
-              </span>
-
-
-              <span class="app-logo">
-                aurel
-              </span>
-
-
-              <span class="app-avatar">
-                AM
-              </span>
-
-
-            </div>
-
-
-
-            <div class="app-body">
-
-
-              <div class="available-label">
-                Sicher verfügbar
-              </div>
-
-
-              <div class="available-value">
-                2.605<small>,66 €</small>
-              </div>
-
-
-              <div class="available-change">
-                297,91 € weniger ausgegeben als im Juli
-              </div>
-
-
-
-              <div class="chart">
-
-
-                <svg
-                  viewBox="0 0 320 220"
-                  preserveAspectRatio="none"
-                  aria-label="Beispielhafter Verlauf des sicher verfügbaren Betrags"
-                >
-
-                  <path
-                    d="
-                      M0,38
-                      L23,59
-                      L45,105
-                      L72,105
-                      L95,127
-                      L124,130
-                      L148,151
-                      L172,166
-                      L198,179
-                      L221,194
-                      L242,216
-                      L268,216
-                      L292,230
-                      L320,246
-                    "
-                    fill="none"
-                    stroke="#2e69d5"
-                    stroke-width="5"
-                    stroke-linecap="round"
-                    stroke-linejoin="round"
-                  />
-
-                </svg>
-
-
-                <span class="chart-label top">
-                  3,1 Tsd. €
-                </span>
-
-                <span class="chart-label middle">
-                  2,8 Tsd. €
-                </span>
-
-                <span class="chart-label bottom">
-                  2,6 Tsd. €
-                </span>
-
-
-                <div class="chart-dates">
-
-                  <span>
-                    01.08.
-                  </span>
-
-                  <span>
-                    Heute
-                  </span>
-
-                </div>
-
-
-              </div>
-
-
-
-              <div class="quick-heading">
-                Kurz für dich
-              </div>
-
-
-
-              <div class="quick-item">
-
-
-                <div class="quick-icon">
-                  ◫
-                </div>
-
-
-                <div class="quick-copy">
-
-                  <div class="quick-name">
-                    Deutschlandticket
-                  </div>
-
-                  <div class="quick-meta">
-                    voraussichtlich 1. September
-                  </div>
-
-                </div>
-
-
-                <div class="quick-price">
-                  58,00 €
-                </div>
-
-
-              </div>
-
-
-
-              <div class="quick-item">
-
-
-                <div class="quick-icon">
-                  ↻
-                </div>
-
-
-                <div class="quick-copy">
-
-                  <div class="quick-name">
-                    Haftpflicht HUK
-                  </div>
-
-                  <div class="quick-meta">
-                    voraussichtlich 3. September
-                  </div>
-
-                </div>
-
-
-                <div class="quick-price">
-                  62,00 €
-                </div>
-
-
-              </div>
-
-
-            </div>
-
-
-
-            <div class="bottom-nav">
-
-
-              <div class="bottom-item active">
-
-                <span class="bottom-icon">
-                  ◉
-                </span>
-
-                Heute
-
-              </div>
-
-
-              <div class="bottom-item">
-
-                <span class="bottom-icon">
-                  ◫
-                </span>
-
-                Ask
-
-              </div>
-
-
-              <div class="bottom-item">
-
-                <span class="bottom-icon">
-                  ≡
-                </span>
-
-                Umsätze
-
-              </div>
-
-
-              <div class="bottom-item">
-
-                <span class="bottom-icon">
-                  ▥
-                </span>
-
-                Ausgaben
-
-              </div>
-
-
-            </div>
-
-
-          </div>
-
-
-        </div>
-
-
-
-        <div class="ask-float">
-
-
-          <div class="ask-float-label">
+          <div class="section-kicker">
             Frag Aurel
           </div>
 
 
-          <div class="ask-float-question">
-            Was hat sich diesen Monat verändert?
+          <h2>
+            Deine Finanzen sollten Fragen beantworten können.
+          </h2>
+
+
+          <p class="section-copy">
+            Kein Suchen durch Kategorien und Diagramme.
+            Wähle eine Frage und sieh, wie Aurel deine eigenen
+            Finanzdaten verständlich machen kann.
+          </p>
+
+
+
+          <div class="question-list">
+
+
+            <button
+              class="question active"
+              data-answer="changed"
+            >
+
+              Was hat sich diesen Monat verändert?
+
+              <span class="question-arrow">
+                →
+              </span>
+
+            </button>
+
+
+
+            <button
+              class="question"
+              data-answer="higher"
+            >
+
+              Warum waren meine Ausgaben höher?
+
+              <span class="question-arrow">
+                →
+              </span>
+
+            </button>
+
+
+
+            <button
+              class="question"
+              data-answer="regular"
+            >
+
+              Wo gebe ich regelmäßig mehr aus?
+
+              <span class="question-arrow">
+                →
+              </span>
+
+            </button>
+
+
           </div>
 
 
-          <div class="ask-float-answer">
-            Deine variablen Ausgaben liegen bisher 184 € über Juli.
+        </div>
+
+
+
+        <div class="answer-panel">
+
+
+          <div class="answer-top">
+
+
+            <span class="answer-aurel">
+              Aurel
+            </span>
+
+
+            <span>
+              Beispieldaten
+            </span>
+
+
+          </div>
+
+
+
+          <div
+            class="answer-number"
+            id="answer-number"
+          >
+            +184 €
+          </div>
+
+
+
+          <div
+            class="answer-title"
+            id="answer-title"
+          >
+            Deine variablen Ausgaben liegen über dem Vormonat.
+          </div>
+
+
+
+          <div
+            class="answer-copy"
+            id="answer-copy"
+          >
+            96 € des Unterschieds entfallen auf Reisen und
+            61 € auf Lebensmittel. Deine regelmäßigen Fixkosten
+            sind nahezu unverändert.
+          </div>
+
+
+
+          <div
+            class="answer-source"
+            id="answer-source"
+          >
+            Grundlage · 42 Buchungen · 01.–18. August · Beispieldaten
           </div>
 
 
@@ -1941,229 +2290,80 @@
       </div>
 
 
-    </div>
+    </section>
 
 
-  </section>
 
+    <!-- =====================================================
+         RANDOM FACT
+    ====================================================== -->
 
+    <section class="random-section">
 
-  <!-- ====================================================
-       ASK AUREL
-  ===================================================== -->
 
+      <div class="wrap">
 
-  <section
-    class="ask-section"
-    id="fragen"
-  >
 
+        <div class="random-shell">
 
-    <div class="wrap ask-grid">
 
+          <div class="random-intro">
 
-      <div>
 
+            <div>
 
-        <div class="section-kicker">
-          Frag Aurel
-        </div>
 
+              <div class="section-kicker">
+                Überrasch mich
+              </div>
 
-        <h2>
-          Deine Finanzen sollten Fragen beantworten können.
-        </h2>
 
+              <h2>
+                Die Zahl, nach der du nie gesucht hättest.
+              </h2>
 
-        <p class="section-copy">
-          Kein Suchen durch Kategorien und Diagramme.
-          Wähle eine Frage und sieh, wie Aurel deine eigenen
-          Finanzdaten verständlich machen kann.
-        </p>
 
-
-
-        <div class="question-list">
-
-
-          <button
-            class="question active"
-            data-answer="changed"
-          >
-
-            Was hat sich diesen Monat verändert?
-
-            <span class="question-arrow">
-              →
-            </span>
-
-          </button>
-
-
-
-          <button
-            class="question"
-            data-answer="higher"
-          >
-
-            Warum waren meine Ausgaben höher?
-
-            <span class="question-arrow">
-              →
-            </span>
-
-          </button>
-
-
-
-          <button
-            class="question"
-            data-answer="regular"
-          >
-
-            Wo gebe ich regelmäßig mehr aus?
-
-            <span class="question-arrow">
-              →
-            </span>
-
-          </button>
-
-
-        </div>
-
-
-      </div>
-
-
-
-      <div class="answer-panel">
-
-
-        <div class="answer-top">
-
-          <span class="answer-aurel">
-            Aurel
-          </span>
-
-          <span>
-            Beispieldaten
-          </span>
-
-        </div>
-
-
-        <div
-          class="answer-number"
-          id="answer-number"
-        >
-          +184 €
-        </div>
-
-
-        <div
-          class="answer-title"
-          id="answer-title"
-        >
-          Deine variablen Ausgaben liegen über dem Vormonat.
-        </div>
-
-
-        <div
-          class="answer-copy"
-          id="answer-copy"
-        >
-          96 € des Unterschieds entfallen auf Reisen und
-          61 € auf Lebensmittel. Deine regelmäßigen Fixkosten
-          sind nahezu unverändert.
-        </div>
-
-
-        <div
-          class="answer-source"
-          id="answer-source"
-        >
-          Grundlage · 42 Buchungen · 01.–18. August · Beispieldaten
-        </div>
-
-
-      </div>
-
-
-    </div>
-
-
-  </section>
-
-
-
-  <!-- ====================================================
-       RANDOM FACT
-  ===================================================== -->
-
-
-  <section class="random-section">
-
-
-    <div class="wrap">
-
-
-      <div class="random-shell">
-
-
-        <div class="random-intro">
-
-
-          <div>
-
-
-            <div class="section-kicker">
-              Überrasch mich
             </div>
 
 
-            <h2>
-              Die Zahl, nach der du nie gesucht hättest.
-            </h2>
+
+            <button
+              class="random-button"
+              id="random-button"
+              type="button"
+            >
+              Noch etwas zeigen
+            </button>
 
 
           </div>
 
 
-          <button
-            class="random-button"
-            id="random-button"
-            type="button"
-          >
-            Noch etwas zeigen
-          </button>
+
+          <div class="random-result">
 
 
-        </div>
+            <div class="random-meta">
+              Beispieldaten
+            </div>
 
 
-
-        <div class="random-result">
-
-
-          <div class="random-meta">
-            Beispieldaten
-          </div>
-
-
-          <div
-            class="random-value"
-            id="random-value"
-          >
-            19 Tage
-          </div>
+            <div
+              class="random-value"
+              id="random-value"
+            >
+              19 Tage
+            </div>
 
 
-          <div
-            class="random-text"
-            id="random-text"
-          >
-            So lange ist dein letzter Amazon-Einkauf her.
+            <div
+              class="random-text"
+              id="random-text"
+            >
+              So lange ist dein letzter Amazon-Einkauf her.
+            </div>
+
+
           </div>
 
 
@@ -2173,358 +2373,416 @@
       </div>
 
 
-    </div>
-
-
-  </section>
+    </section>
 
 
 
-  <!-- ====================================================
-       PRIVACY
-  ===================================================== -->
+    <!-- =====================================================
+         PRIVACY
+    ====================================================== -->
+
+    <section
+      class="privacy"
+      id="privatsphaere"
+    >
 
 
-  <section
-    class="privacy"
-    id="privatsphaere"
-  >
+      <div class="wrap privacy-grid">
 
 
-    <div class="wrap privacy-grid">
+        <div class="privacy-title">
+          Privatsphäre
+        </div>
 
 
-      <div class="privacy-title">
-        Privatsphäre
+
+        <div>
+
+
+          <h2>
+            Finanzdaten verdienen eine andere Architektur.
+          </h2>
+
+
+          <p class="privacy-copy">
+            Aurel wird local-first und mit Datenminimierung
+            entwickelt. Finanzielle Berechnungen bleiben
+            nachvollziehbar und sensible Daten sollen so wenig
+            wie möglich weitergegeben werden.
+          </p>
+
+
+
+          <div class="privacy-points">
+
+
+            <span>
+              Lokal verarbeiten
+            </span>
+
+
+            <span>
+              So wenig wie nötig
+            </span>
+
+
+            <span>
+              Nachvollziehbare Zahlen
+            </span>
+
+
+          </div>
+
+
+        </div>
+
+
       </div>
+
+
+    </section>
+
+
+
+    <!-- =====================================================
+         FINAL CTA
+    ====================================================== -->
+
+    <section class="final-cta">
+
+
+      <div class="wrap">
+
+
+        <h2>
+          Aurel ist noch nicht fertig. Aber die Richtung steht.
+        </h2>
+
+
+        <p>
+          Wenn du beim Testen dabei sein oder erfahren möchtest,
+          wann Aurel startet, schreib uns.
+        </p>
+
+
+        <a
+          class="final-button"
+          href="mailto:info@aurelfinance.de?subject=Aurel%20Beta"
+        >
+          Interesse an der Beta
+        </a>
+
+
+      </div>
+
+
+    </section>
+
+
+  </main>
+
+
+
+  <!-- =====================================================
+       FOOTER
+  ====================================================== -->
+
+  <footer>
+
+
+    <div class="wrap footer">
 
 
       <div>
 
+        <strong>
+          Aurel
+        </strong>
 
-        <h2>
-          Finanzdaten verdienen eine andere Architektur.
-        </h2>
+        · Köln, Deutschland
 
-
-        <p class="privacy-copy">
-          Aurel wird local-first und mit Datenminimierung entwickelt.
-          Finanzielle Berechnungen bleiben nachvollziehbar und
-          sensible Daten sollen so wenig wie möglich weitergegeben werden.
-        </p>
+      </div>
 
 
-        <div class="privacy-points">
 
-          <span>
-            Lokal verarbeiten
-          </span>
-
-          <span>
-            So wenig wie nötig
-          </span>
-
-          <span>
-            Nachvollziehbare Zahlen
-          </span>
-
-        </div>
+      <div class="footer-links">
 
 
+        <a href="#privatsphaere">
+          Privatsphäre
+        </a>
+
+
+        <a href="mailto:info@aurelfinance.de">
+          Kontakt
+        </a>
+
+
+      </div>
+
+
+
+      <div>
+        © 2026 Aurel Finance
       </div>
 
 
     </div>
 
 
-  </section>
+  </footer>
 
 
 
-  <!-- ====================================================
-       CTA
-  ===================================================== -->
+  <script>
 
 
-  <section class="final-cta">
+    /* =====================================================
+       ASK AUREL
+    ====================================================== */
 
 
-    <div class="wrap">
+    const answers = {
 
 
-      <h2>
-        Aurel ist noch nicht fertig. Aber die Richtung steht.
-      </h2>
+      changed: {
 
+        number: "+184 €",
 
-      <p>
-        Wenn du beim Testen dabei sein oder erfahren möchtest,
-        wann Aurel startet, schreib uns.
-      </p>
+        title:
+          "Deine variablen Ausgaben liegen über dem Vormonat.",
 
+        copy:
+          "96 € des Unterschieds entfallen auf Reisen und 61 € auf Lebensmittel. Deine regelmäßigen Fixkosten sind nahezu unverändert.",
 
-      <a
-        class="final-button"
-        href="mailto:info@aurelfinance.de?subject=Aurel%20Beta"
-      >
-        Interesse an der Beta
-      </a>
+        source:
+          "Grundlage · 42 Buchungen · 01.–18. August · Beispieldaten"
 
+      },
 
-    </div>
 
+      higher: {
 
-  </section>
+        number: "61 €",
 
+        title:
+          "Lebensmittel erklären den größten Teil des Anstiegs.",
 
-</main>
+        copy:
+          "Deine Lebensmittelausgaben liegen 18 % über deinem üblichen Monatsverlauf. REWE macht davon den größten Unterschied aus.",
 
+        source:
+          "Grundlage · 17 Lebensmittel-Buchungen · Beispieldaten"
 
+      },
 
-<footer>
 
+      regular: {
 
-  <div class="wrap footer">
+        number: "+14 %",
 
+        title:
+          "Dein durchschnittlicher Supermarkt-Einkauf ist gestiegen.",
 
-    <div>
-      <strong>Aurel</strong>
-      · Köln, Deutschland
-    </div>
+        copy:
+          "Der durchschnittliche Einkaufswert liegt aktuell bei 24,80 €. Vor drei Monaten waren es noch 21,76 €.",
 
+        source:
+          "Grundlage · 90 Tage · 43 Supermarkt-Buchungen · Beispieldaten"
 
-    <div class="footer-links">
+      }
 
-      <a href="#privatsphaere">
-        Privatsphäre
-      </a>
+    };
 
-      <a href="mailto:info@aurelfinance.de">
-        Kontakt
-      </a>
 
-    </div>
 
+    const questionButtons =
+      document.querySelectorAll(".question");
 
-    <div>
-      © 2026 Aurel Finance
-    </div>
 
+    const answerNumber =
+      document.getElementById("answer-number");
 
-  </div>
 
+    const answerTitle =
+      document.getElementById("answer-title");
 
-</footer>
 
+    const answerCopy =
+      document.getElementById("answer-copy");
 
 
-<script>
+    const answerSource =
+      document.getElementById("answer-source");
 
-  /* =====================================================
-     ASK AUREL
-  ===================================================== */
 
 
-  const answers = {
+    questionButtons.forEach(button => {
 
-    changed: {
 
-      number: "+184 €",
+      button.addEventListener("click", () => {
 
-      title:
-        "Deine variablen Ausgaben liegen über dem Vormonat.",
 
-      copy:
-        "96 € des Unterschieds entfallen auf Reisen und 61 € auf Lebensmittel. Deine regelmäßigen Fixkosten sind nahezu unverändert.",
+        questionButtons.forEach(item => {
+          item.classList.remove("active");
+        });
 
-      source:
-        "Grundlage · 42 Buchungen · 01.–18. August · Beispieldaten"
 
-    },
+        button.classList.add("active");
 
 
-    higher: {
+        const answer =
+          answers[
+            button.dataset.answer
+          ];
 
-      number: "61 €",
 
-      title:
-        "Lebensmittel erklären den größten Teil des Anstiegs.",
+        answerNumber.textContent =
+          answer.number;
 
-      copy:
-        "Deine Lebensmittelausgaben liegen 18 % über deinem üblichen Monatsverlauf. REWE macht davon den größten Unterschied aus.",
 
-      source:
-        "Grundlage · 17 Lebensmittel-Buchungen · Beispieldaten"
+        answerTitle.textContent =
+          answer.title;
 
-    },
 
+        answerCopy.textContent =
+          answer.copy;
 
-    regular: {
 
-      number: "+14 %",
+        answerSource.textContent =
+          answer.source;
 
-      title:
-        "Dein durchschnittlicher Supermarkt-Einkauf ist gestiegen.",
 
-      copy:
-        "Der durchschnittliche Einkaufswert liegt aktuell bei 24,80 €. Vor drei Monaten waren es noch 21,76 €.",
-
-      source:
-        "Grundlage · 90 Tage · 43 Supermarkt-Buchungen · Beispieldaten"
-
-    }
-
-  };
-
-
-  const questionButtons =
-    document.querySelectorAll(".question");
-
-
-  const answerNumber =
-    document.getElementById("answer-number");
-
-
-  const answerTitle =
-    document.getElementById("answer-title");
-
-
-  const answerCopy =
-    document.getElementById("answer-copy");
-
-
-  const answerSource =
-    document.getElementById("answer-source");
-
-
-
-  questionButtons.forEach(button => {
-
-    button.addEventListener("click", () => {
-
-      questionButtons.forEach(item => {
-        item.classList.remove("active");
       });
 
 
-      button.classList.add("active");
-
-
-      const answer =
-        answers[button.dataset.answer];
-
-
-      answerNumber.textContent =
-        answer.number;
-
-
-      answerTitle.textContent =
-        answer.title;
-
-
-      answerCopy.textContent =
-        answer.copy;
-
-
-      answerSource.textContent =
-        answer.source;
-
     });
 
-  });
+
+
+    /* =====================================================
+       RANDOM FACTS
+    ====================================================== */
+
+
+    const facts = [
+
+
+      {
+        value: "19 Tage",
+        text:
+          "So lange ist dein letzter Amazon-Einkauf her."
+      },
+
+
+      {
+        value: "4 Tage",
+        text:
+          "Diesen Monat hattest du bisher vier Tage ganz ohne Ausgaben."
+      },
+
+
+      {
+        value: "46 €",
+        text:
+          "So viel weniger hast du für Lieferdienste ausgegeben als im gleichen Zeitraum letzten Monat."
+      },
+
+
+      {
+        value: "Dienstag",
+        text:
+          "An keinem anderen Wochentag war dein durchschnittlicher Einkaufswert zuletzt höher."
+      },
+
+
+      {
+        value: "3,18 €",
+        text:
+          "Das war dein kleinster REWE-Einkauf in den vergangenen 90 Tagen."
+      },
+
+
+      {
+        value: "11",
+        text:
+          "So viele unterschiedliche Supermärkte tauchen in deinen letzten 90 Tagen auf."
+      },
+
+
+      {
+        value: "17 Tage",
+        text:
+          "So lange war deine längste Zeit ohne eine Bestellung bei einem Lieferdienst."
+      },
+
+
+      {
+        value: "08:14",
+        text:
+          "Um diese Uhrzeit tauchen an Arbeitstagen besonders häufig deine ersten Ausgaben auf."
+      }
+
+
+    ];
 
 
 
-  /* =====================================================
-     RANDOM FACT
-  ===================================================== */
+    let currentFact = 0;
 
 
-  const facts = [
-
-    {
-      value: "19 Tage",
-      text: "So lange ist dein letzter Amazon-Einkauf her."
-    },
-
-    {
-      value: "4 Tage",
-      text: "Diesen Monat hattest du bisher vier Tage ganz ohne Ausgaben."
-    },
-
-    {
-      value: "46 €",
-      text: "So viel weniger hast du für Lieferdienste ausgegeben als im gleichen Zeitraum letzten Monat."
-    },
-
-    {
-      value: "Dienstag",
-      text: "An keinem anderen Wochentag war dein durchschnittlicher Einkaufswert zuletzt höher."
-    },
-
-    {
-      value: "3,18 €",
-      text: "Das war dein kleinster REWE-Einkauf in den vergangenen 90 Tagen."
-    },
-
-    {
-      value: "17 Tage",
-      text: "So lange war deine längste Zeit ohne eine Bestellung bei einem Lieferdienst."
-    },
-
-    {
-      value: "08:14",
-      text: "Um diese Uhrzeit tauchen an Arbeitstagen besonders häufig deine ersten Ausgaben auf."
-    }
-
-  ];
+    const randomValue =
+      document.getElementById("random-value");
 
 
-  let currentFact = 0;
+    const randomText =
+      document.getElementById("random-text");
 
 
-  const randomValue =
-    document.getElementById("random-value");
-
-
-  const randomText =
-    document.getElementById("random-text");
-
-
-  const randomButton =
-    document.getElementById("random-button");
+    const randomButton =
+      document.getElementById("random-button");
 
 
 
-  randomButton.addEventListener("click", () => {
-
-    let next = currentFact;
-
-
-    while (next === currentFact) {
-
-      next =
-        Math.floor(
-          Math.random() * facts.length
-        );
-
-    }
+    randomButton.addEventListener(
+      "click",
+      () => {
 
 
-    currentFact = next;
+        let next = currentFact;
 
 
-    randomValue.textContent =
-      facts[currentFact].value;
+        while (
+          next === currentFact
+        ) {
+
+          next =
+            Math.floor(
+              Math.random() *
+              facts.length
+            );
+
+        }
 
 
-    randomText.textContent =
-      facts[currentFact].text;
+        currentFact = next;
 
-  });
 
-</script>
+        randomValue.textContent =
+          facts[currentFact].value;
+
+
+        randomText.textContent =
+          facts[currentFact].text;
+
+
+      }
+    );
+
+
+  </script>
 
 
 </body>
+
 </html>
