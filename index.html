@@ -4,20 +4,24 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-  <title>Aurel — Verstehe dein Geld</title>
+  <title>Aurel Finance | Personal Finance für iPhone</title>
 
-  <meta
-    name="description"
-    content="Aurel verbindet deine Finanzen zu einem klaren Bild und zeigt dir, was sich wirklich verändert."
+<meta
+  name="description"
+  content="Aurel zeigt dir, was sich bei deinen Konten, Ausgaben und finanziellen Gewohnheiten verändert. Personal Finance für iPhone, entwickelt in Köln."
+>
   >
 
   <meta name="theme-color" content="#eaf3ff">
 
   <!-- Open Graph -->
-  <meta property="og:title" content="Aurel — Verstehe dein Geld">
+ <meta property="og:title" content="Aurel Finance | Personal Finance für iPhone">
   <meta
     property="og:description"
-    content="Nicht nur sehen, was passiert ist. Verstehen, was sich verändert."
+   <meta
+  property="og:description"
+  content="Verstehe, was sich bei deinen Finanzen verändert."
+>
   >
   <meta property="og:type" content="website">
   <meta property="og:url" content="https://aurelfinance.de/">
@@ -27,11 +31,11 @@
 
   <!-- Twitter / X -->
   <meta name="twitter:card" content="summary_large_image">
-  <meta name="twitter:title" content="Aurel — Verstehe dein Geld">
+ <meta name="twitter:title" content="Aurel Finance | Personal Finance für iPhone">
   <meta
-    name="twitter:description"
-    content="Nicht nur sehen, was passiert ist. Verstehen, was sich verändert."
-  >
+  name="twitter:description"
+  content="Verstehe, was sich bei deinen Finanzen verändert."
+>
   <meta name="twitter:image" content="https://aurelfinance.de/og-aurel.png">
 
   <link rel="canonical" href="https://aurelfinance.de/">
@@ -245,7 +249,36 @@
       line-height: 1.53;
       letter-spacing: -0.018em;
     }
+.hero-question {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
 
+  margin-top: 22px;
+
+  color: var(--navy);
+
+  font-size: 14px;
+  line-height: 1.45;
+  font-weight: 500;
+}
+
+.hero-question strong {
+  color: var(--blue);
+  font-weight: 650;
+}
+
+.hero-question span {
+  margin-left: 3px;
+
+  color: var(--blue);
+
+  transition: transform 0.18s ease;
+}
+
+.hero-question:hover span {
+  transform: translateX(3px);
+}
     .hero-actions {
       display: flex;
       align-items: center;
@@ -891,7 +924,11 @@
     ========================================================= */
 
     @media (max-width: 650px) {
+.hero-question {
+  margin-top: 19px;
 
+  font-size: 13px;
+}
       .wrap {
         width: calc(100% - 32px);
       }
@@ -1211,6 +1248,11 @@
           Aurel verbindet deine Finanzen zu einem klaren Bild
           und zeigt dir, was im Alltag tatsächlich auffällt.
         </p>
+        <a class="hero-question" href="#fragen">
+  <strong>Frag Aurel:</strong>
+  „Warum habe ich diesen Monat mehr ausgegeben?“
+  <span>→</span>
+</a>
 
         <div class="hero-actions">
 
